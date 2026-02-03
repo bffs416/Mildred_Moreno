@@ -1,0 +1,11 @@
+{
+  "name": "mildred-moreno-website",
+  "version": "1.0.0",
+  "description": "Website for Dra. Mildred Moreno",
+  "scripts": {
+    "build": "echo 'Building static site...' && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
