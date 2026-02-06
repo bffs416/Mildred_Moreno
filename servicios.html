@@ -8,8 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A7C7E7",
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         :root {
             --bg-color: #f5f9ff;
@@ -330,6 +344,17 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Performance optimizations */
+        .grid-row,
+        .section-header {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 400px;
+        }
+
+        img {
+            content-visibility: auto;
+        }
     </style>
     <!-- Use material symbols for icons as in main page if needed, but SVG in styles matches user request -->
     <link
@@ -344,16 +369,16 @@
             <span class="material-symbols-outlined" style="font-size: 2rem;">menu</span>
         </button>
         <a href="index.html">
-            <img src="assets/images/logo.png" alt="Dra. Moreno" class="logo-img">
+            <img src="assets/images/logo.png" alt="Dra. Moreno" class="logo-img" loading="lazy" decoding="async">
         </a>
         <ul class="nav-links">
             <li><a href="filosofia.html">FILOSOFÍA</a></li>
-            <li><a href="#" class="active">SERVICIOS</a></li>
-            <li><a href="index.html#results">RESULTADOS</a></li>
+            <li><a href="servicios.html" class="active">SERVICIOS</a></li>
+            <li><a href="galeria.html">RESULTADOS</a></li>
             <li><a href="blog.html">BLOG</a></li>
-            <li><a href="index.html#contact">CONTACTO</a></li>
+            <li><a href="#contact">CONTACTO</a></li>
         </ul>
-        <a href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
+        <a href="https://wa.me/573014339938?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
             target="_blank" class="btn-cta">Agendar Cita</a>
     </nav>
 
@@ -363,11 +388,11 @@
             <span class="material-symbols-outlined" style="font-size: 2.5rem;">close</span>
         </button>
         <a href="filosofia.html">Sobre Mí / Filosofía</a>
-        <a href="#" style="color: var(--accent-blue);">Servicios</a>
-        <a href="index.html#results">Resultados</a>
+        <a href="servicios.html" style="color: var(--accent-blue);">Servicios</a>
+        <a href="galeria.html">Resultados</a>
         <a href="blog.html">Blog</a>
-        <a href="index.html#contact">Contacto</a>
-        <a href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
+        <a href="#contact">Contacto</a>
+        <a href="https://wa.me/573014339938?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
             class="btn-cta">Agendar Cita</a>
     </div>
 
@@ -377,7 +402,7 @@
     <main class="container">
 
         <!-- Section: Corporal -->
-        <header class="section-header">
+        <header class="section-header" id="corporal">
             <h2 class="section-title">Corporal</h2>
         </header>
 
@@ -385,7 +410,7 @@
             <div class="image-wrapper">
                 <img src="assets/images/service-body.png"
                     onerror="this.src='https://images.unsplash.com/photo-1515377666659-81829804167e?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Lipoescultura VASER">
+                    alt="Lipoescultura VASER" loading="lazy" decoding="async">
             </div>
             <div class="text-content">
                 <span class="service-tag">Alta Definición</span>
@@ -424,7 +449,7 @@
             <div class="image-wrapper">
                 <img src="assets/images/service-wellness.png"
                     onerror="this.src='https://images.unsplash.com/photo-1556229167-7203679bc213?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Lipotransferencia Glútea">
+                    alt="Lipotransferencia Glútea" loading="lazy" decoding="async">
             </div>
             <div class="text-content">
                 <span class="service-tag">Volumen Natural</span>
@@ -460,7 +485,7 @@
         </div>
 
         <!-- Section: Facial -->
-        <header class="section-header">
+        <header class="section-header" id="facial">
             <h2 class="section-title">Facial</h2>
         </header>
 
@@ -468,7 +493,7 @@
             <div class="image-wrapper">
                 <img src="assets/images/service-facial.png"
                     onerror="this.src='https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Lipopapada">
+                    alt="Lipopapada" loading="lazy" decoding="async">
             </div>
             <div class="text-content">
                 <span class="service-tag">Armonización</span>
@@ -501,7 +526,7 @@
             <div class="image-wrapper">
                 <img src="assets/images/blog-face.png"
                     onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Resultados Facial">
+                    alt="Resultados Facial" loading="lazy" decoding="async">
             </div>
             <div class="text-content">
                 <span class="service-tag">No Quirúrgico</span>
@@ -537,20 +562,81 @@
         </div>
 
         <!-- CTA Final -->
-        <section class="reveal" style="padding: 6rem 5%; text-align: center;">
+        <section class="py-20 px-6">
             <div
-                style="max-width: 800px; margin: 0 auto; background: white; padding: 4rem; border-radius: 2rem; box-shadow: 0 20px 40px rgba(167, 199, 231, 0.15); border: 1px solid rgba(167, 199, 231, 0.2);">
-                <h3 class="font-serif" style="font-size: 2.5rem; color: var(--text-main); margin-bottom: 1.5rem;">
-                    ¿Deseas una valoración personalizada?</h3>
-                <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem;">Agenda tu cita hoy mismo
-                    y descubre cómo podemos realzar tu belleza natural.</p>
-                <a href="https://wa.me/573104950697?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
-                    target="_blank" class="btn-cta" style="display: inline-block; text-decoration: none;">Hablar con una
-                    Especialista</a>
+                class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
+                <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
+                    ¿Lista para tu <span class="italic text-primary">Transformación?</span>
+                </h2>
+                <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light">
+                    Escríbenos hoy y agendamos una valoración profesional personalizada.
+                </p>
+                <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+                    target="_blank"
+                    class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
+                    Hablar con una Especialista
+                </a>
             </div>
         </section>
 
     </main>
+
+    <footer class="bg-white border-t border-slate-200 pt-16 pb-10 mt-10" style="font-family: 'Newsreader', serif;"
+        id="contact">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-6">
+                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                            class="h-16 w-auto object-contain">
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Elevando la medicina estética a través de la ciencia y el arte. Experience la diferencia de una
+                        verdadera maestría.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 uppercase tracking-wider text-xs mb-6">Clínica</h5>
+                    <hr class="border-primary/20 mb-4 md:hidden">
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="filosofia.html">Nuestra Filosofía</a></li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="galeria.html">Resultados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 uppercase tracking-wider text-xs mb-6">Tratamientos</h5>
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#facial">Rostro</a></li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#corporal">Cuerpo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 uppercase tracking-wider text-xs mb-6">Contacto</h5>
+                    <ul class="flex flex-col gap-4">
+                        <li class="flex items-start gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg mt-0.5">location_on</span>
+                            <span>Cl. 53b #24-80, Bogotá</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg">call</span>
+                            <span>+57 301 4339938</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-400">© 2026 Dra. Mildred Moreno. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Política de Privacidad</a>
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Reveal on Scroll Logic

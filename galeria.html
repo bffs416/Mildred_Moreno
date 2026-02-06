@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -119,6 +121,16 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Performance optimizations */
+        .gallery-item {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 400px;
+        }
+
+        img {
+            content-visibility: auto;
+        }
     </style>
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -132,16 +144,17 @@
             <span class="material-symbols-outlined text-3xl">menu</span>
         </button>
         <a href="index.html">
-            <img src="assets/images/logo.png" alt="Dra. Moreno" class="h-12 w-auto object-contain">
+            <img src="assets/images/logo.png" alt="Dra. Moreno" class="h-12 w-auto object-contain" loading="lazy"
+                decoding="async">
         </a>
         <ul class="hidden md:flex gap-10 list-none">
             <li><a href="index.html#about" class="nav-link text-text-main">SOBRE MÍ</a></li>
             <li><a href="servicios.html" class="nav-link text-text-main">SERVICIOS</a></li>
-            <li><a href="#" class="nav-link text-text-main active">RESULTADOS</a></li>
+            <li><a href="galeria.html" class="nav-link text-text-main active">RESULTADOS</a></li>
             <li><a href="blog.html" class="nav-link text-text-main">BLOG</a></li>
-            <li><a href="index.html#contact" class="nav-link text-text-main">CONTACTO</a></li>
+            <li><a href="#contact" class="nav-link text-text-main">CONTACTO</a></li>
         </ul>
-        <a href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
+        <a href="https://wa.me/573014339938?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
             target="_blank"
             class="hidden md:inline-block bg-primary text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#b08d4b] transition-all shadow-lg hover:-translate-y-0.5">
             Agendar Cita
@@ -157,10 +170,10 @@
         <a href="filosofia.html" class="text-xl font-serif uppercase tracking-widest text-text-main">Sobre Mí /
             Filosofía</a>
         <a href="servicios.html" class="text-xl font-serif uppercase tracking-widest text-text-main">Servicios</a>
-        <a href="#" class="text-xl font-serif uppercase tracking-widest text-primary">Resultados</a>
+        <a href="galeria.html" class="text-xl font-serif uppercase tracking-widest text-primary">Resultados</a>
         <a href="blog.html" class="text-xl font-serif uppercase tracking-widest text-text-main">Blog</a>
-        <a href="index.html#contact" class="text-xl font-serif uppercase tracking-widest text-text-main">Contacto</a>
-        <a href="https://wa.me/573104950697"
+        <a href="#contact" class="text-xl font-serif uppercase tracking-widest text-text-main">Contacto</a>
+        <a href="https://wa.me/573014339938"
             class="bg-primary text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest">Agendar
             Cita</a>
     </div>
@@ -194,7 +207,8 @@
                 -->
                 <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop"
                     alt="Después"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy" decoding="async">
 
                 <!-- 
                     2. Reemplaza el link de abajo con tu foto de ANTES (ej: assets/images/gallery/caso1-antes.jpg)
@@ -202,7 +216,8 @@
                 -->
                 <img src="https://images.unsplash.com/photo-1579487785973-74d2ca7abf5c?q=80&w=800&auto=format&fit=crop"
                     alt="Antes"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0">
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0"
+                    loading="lazy" decoding="async">
 
                 <!-- Tags -->
                 <span
@@ -454,20 +469,81 @@
 
         </div>
         <!-- CTA Final -->
-        <section class="reveal max-w-4xl mx-auto text-center py-24 px-6">
-            <div class="bg-white p-12 rounded-[2.5rem] shadow-xl border border-primary/20">
-                <h3 class="font-serif text-4xl text-text-main mb-6 italic">¿Tu próximo cambio?</h3>
-                <p class="text-slate-500 mb-10 text-lg font-light">Resultados reales para personas reales. Agenda tu
-                    valoración hoy y comencemos tu proceso.</p>
-                <a href="https://wa.me/573104950697?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+        <section class="py-20 px-6">
+            <div
+                class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
+                <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
+                    ¿Lista para tu <span class="italic text-primary">Transformación?</span>
+                </h2>
+                <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light">
+                    Escríbenos hoy y agendamos una valoración profesional personalizada.
+                </p>
+                <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
                     target="_blank"
-                    class="inline-block bg-primary text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:brightness-105 transition-all shadow-xl shadow-primary/20">
-                    Agenda tu Valoración Hoy
+                    class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
+                    Hablar con una Especialista
                 </a>
             </div>
         </section>
 
     </main>
+
+    <footer class="bg-white border-t border-slate-200 pt-16 pb-10 mt-10" style="font-family: 'Newsreader', serif;"
+        id="contact">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-6">
+                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                            class="h-16 w-auto object-contain">
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Elevando la medicina estética a través de la ciencia y el arte. Experience la diferencia de una
+                        verdadera maestría.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 uppercase tracking-wider text-xs mb-6">Clínica</h5>
+                    <hr class="border-primary/20 mb-4 md:hidden">
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="filosofia.html">Nuestra Filosofía</a></li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="galeria.html">Resultados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 uppercase tracking-wider text-xs mb-6">Tratamientos</h5>
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#facial">Rostro</a></li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#corporal">Cuerpo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 uppercase tracking-wider text-xs mb-6">Contacto</h5>
+                    <ul class="flex flex-col gap-4">
+                        <li class="flex items-start gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg mt-0.5">location_on</span>
+                            <span>Cl. 53b #24-80, Bogotá</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg">call</span>
+                            <span>+57 301 4339938</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-400">© 2026 Dra. Mildred Moreno. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Política de Privacidad</a>
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Reveal on Scroll Logic

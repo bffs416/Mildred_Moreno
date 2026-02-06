@@ -5,14 +5,16 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Elite Aesthetic Clinic - Dra. Mildred Moreno</title>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="assets/images/hero.png" />
     <link
         href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
@@ -102,6 +104,22 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Performance optimizations */
+        section,
+        footer {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 500px;
+        }
+
+        header,
+        nav {
+            content-visibility: visible;
+        }
+
+        img {
+            content-visibility: auto;
+        }
     </style>
 </head>
 
@@ -123,19 +141,19 @@
                         href="#services">Servicios</a>
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
-                    <a href="#">
+                    <a href="index.html">
                         <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
-                            class="h-10 md:h-12 lg:h-14 w-auto object-contain">
+                            class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy">
                     </a>
                 </div>
                 <div class="hidden md:flex flex-1 justify-end items-center gap-5 lg:gap-8">
                     <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
-                        href="#results">Resultados</a>
+                        href="galeria.html">Resultados</a>
                     <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
                         href="blog.html">Blog</a>
                     <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
                         href="#contact">Contacto</a>
-                    <a href="https://wa.me/573104950697" target="_blank"
+                    <a href="https://wa.me/573014339938" target="_blank"
                         class="bg-primary text-white px-5 py-2 rounded-full text-xs flex items-center justify-center font-bold uppercase tracking-wider hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
                         Agendar Cita
                     </a>
@@ -159,12 +177,12 @@
         <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
             href="#services">Servicios</a>
         <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
-            href="#results">Resultados</a>
+            href="galeria.html">Resultados</a>
         <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
             href="blog.html">Blog</a>
         <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
             href="#contact">Contacto</a>
-        <a href="https://wa.me/573104950697" target="_blank"
+        <a href="https://wa.me/573014339938" target="_blank"
             class="bg-primary text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 mt-4">
             Agendar Cita
         </a>
@@ -219,7 +237,8 @@
                 equilibrio, la simetría y la elegancia.
             </p>
             <div class="mt-8">
-                <img alt="Logo Dra. Mildred Moreno" class="h-16 w-auto object-contain" src="assets/images/logo.png" />
+                <img alt="Logo Dra. Mildred Moreno" class="h-16 w-auto object-contain" src="assets/images/logo.png"
+                    loading="lazy" decoding="async" />
             </div>
         </div>
     </section>
@@ -416,7 +435,8 @@
                 <div class="relative">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative group">
                         <img src="assets/images/marcacion_abdomen.png" alt="Marcación Abdominal VASER HD"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy" decoding="async" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
                         </div>
                         <div class="absolute bottom-8 left-8 right-8 text-white">
@@ -440,7 +460,7 @@
                         <p class="text-slate-400 font-light">Ideal para tratar grasa rebelde en abdomen, espalda,
                             cintura, flancos, brazos y ginecomastia masculina que no cede con ejercicio.</p>
                     </div>
-                    <a href="https://wa.me/573104950697" target="_blank"
+                    <a href="https://wa.me/573014339938" target="_blank"
                         class="bg-primary hover:bg-white hover:text-slate-900 text-white px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest transition-all shadow-xl shadow-primary/20 whitespace-nowrap">
                         Agenda tu Valoración Hoy
                     </a>
@@ -537,7 +557,8 @@
                     <div class="overflow-hidden rounded-lg mb-6 relative">
                         <img src="assets/images/blog-face.png" alt="La Ciencia detrás de la Armonización Facial"
                             onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAPjcLv42xjY9aNsxptEsmJzZBTMDLS_mZQMTDkHT4N6IO0Fqo2z3lOGTihoveFr_CyxNnjMKuLDZfGt3I5HjXfhm-UQizUUdOw5XjAfavcKVAZ5jj3L9TM1dmcNcqjfiZ_n2lRHfrFgQ_b1q3FJWcjEqFmVaFKf9RUIJW4ajZuEKftttuheK9YhOAiPY-MjpniYMXfJtcfqLP8u9S58vRBcdw6tUDpKtobpodYFLs-vKGVwm8Wpt3Dl4hpWW3IonZ1UtZh5ooZwq5j'"
-                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
+                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy" decoding="async" />
                         <div
                             class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                             Rostro
@@ -554,7 +575,7 @@
                             sin cirugía.
                         </p>
                         <a class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
-                            href="#">
+                            href="blog-facial.html">
                             Leer Más
                             <span
                                 class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -567,7 +588,8 @@
                     <div class="overflow-hidden rounded-lg mb-6 relative">
                         <img src="assets/images/blog-body.png" alt="Lipo Láser vs. Liposucción Tradicional"
                             onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAuzQngT4Uoc4U5iyPsWBZ0I1H9mA6Z3lr5fXKVMNXqd0bVaplZaflfeBOzRg3dRL298xNZ1ySMMp3bFUF5Ari5FqIUqBpE7qTBwBTNPmPgX-5I1r6h1ZS5wE7Tb94qCWLOUItZQ4J8Eri8NjR5y9_zpHvV616iPDJrv6pMDj_9h1z4oa4AWkqAsfnHrjUI8zcILz25l632XP9GqlYffCHGSze8PjyuPuut89WI4lMrDam4r2nSv6dk8dD1kDmj6KEbGAwLJiYrGTAi'"
-                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
+                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy" decoding="async" />
                         <div
                             class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                             Cuerpo
@@ -584,7 +606,7 @@
                             muscular atlética y natural.
                         </p>
                         <a class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
-                            href="#">
+                            href="blog-vaser.html">
                             Leer Más
                             <span
                                 class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -597,7 +619,8 @@
                     <div class="overflow-hidden rounded-lg mb-6 relative">
                         <img src="assets/images/blog-skin.png" alt="Preparando tu Piel para el Invierno"
                             onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAPEk-6IuAxouLVHegkWBGpdQlaBWtRKOI30fMJsAVLVOdADRvQtGbNzn5E1EMg7mDcUBR8yIlXZYhXBlv-uGsjDCKHX3y9NKXGCgAUBuCvx06HturTqacPTgW6LySrw11LBNZf8FmDgJ7-p17wfPDsJfyVtV3mPXZQO4s4bh3WbRxuMESh2GKV3TmA-MZbfFKHQwnzI9Jx1WX1L7JqblcZnADwnquYjdkkdPb4OpENDUSWEwMUUFGNzP4YwtxrBrQp8XoW0s0KMWEJ'"
-                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
+                            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                            loading="lazy" decoding="async" />
                         <div
                             class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
                             Piel
@@ -614,7 +637,7 @@
                             temporada.
                         </p>
                         <a class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
-                            href="#">
+                            href="blog-bioestimulacion.html">
                             Leer Más
                             <span
                                 class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -627,8 +650,8 @@
         </div>
     </section>
 
-    <section class="py-0 relative" id="location">
-        <div class="w-full h-[600px] relative bg-slate-900">
+    <section class="py-0 relative" id="contact">
+        <div class="w-full h-[500px] md:h-[650px] relative bg-slate-900 overflow-hidden">
             <!-- Mapa centrado en Bogotá (aprox Parque de la 93) -->
             <iframe allowfullscreen=""
                 class="w-full h-full border-0 map-dark-mode grayscale invert brightness-[0.8] contrast-125"
@@ -637,7 +660,7 @@
             </iframe>
             <div class="absolute inset-0 bg-primary/5 pointer-events-none mix-blend-overlay"></div>
             <div
-                class="absolute top-1/2 left-6 md:left-20 transform -translate-y-1/2 bg-background-dark/95 backdrop-blur-md p-8 md:p-10 max-w-sm md:max-w-md w-full border border-primary/20 shadow-2xl">
+                class="absolute top-1/2 left-1/2 md:left-20 transform -translate-x-1/2 md:translate-x-0 -translate-y-1/2 bg-background-dark/95 backdrop-blur-md p-8 md:p-10 w-[92%] md:w-full max-w-sm md:max-w-md border border-primary/20 shadow-2xl z-10">
                 <h3 class="text-3xl font-medium text-white mb-8 border-b border-primary/30 pb-4">Ubicación</h3>
                 <div class="space-y-6">
                     <div class="flex items-start gap-4">
@@ -676,7 +699,7 @@
                         <div>
                             <h4 class="text-white font-bold uppercase tracking-wider text-sm mb-1">Contacto</h4>
                             <p class="text-slate-400 text-sm leading-relaxed">
-                                +57 310 4950697<br />
+                                +57 301 4339938<br />
                                 citas@dramoreno.com
                             </p>
                         </div>
@@ -692,19 +715,37 @@
         </div>
     </section>
 
+    <!-- CTA Final -->
+    <section class="py-20 px-6 cta-section">
+        <div
+            class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
+            <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
+                ¿Lista para tu <span class="italic text-primary">Transformación?</span>
+            </h2>
+            <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Escríbenos hoy y agendamos una valoración profesional personalizada.
+            </p>
+            <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+                target="_blank"
+                class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
+                Hablar con una Especialista
+            </a>
+        </div>
+    </section>
+
 
     <footer
-        class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pt-20 pb-10"
-        id="contact">
+        class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pt-16 pb-10">
         <div class="max-w-[1440px] mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-6">
                         <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
                             class="h-16 w-auto object-contain">
                     </div>
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                        Elevando la medicina estética a través de la ciencia y el arte. Experimenta la diferencia de una
+                        Elevando la medicina estética a través de la ciencia y el arte. Experimenta la diferencia de
+                        una
                         verdadera maestría.
                     </p>
                     <div class="flex gap-4">
@@ -717,7 +758,8 @@
                             </svg>
                         </a>
                         <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300"
-                            href="https://instagram.com/dramildredmoreno" target="_blank">
+                            href="https://www.instagram.com/avanzadamedicina_estetica?igsh=c3N3eGJqbGp3ZWQ0&utm_source=qr"
+                            target="_blank">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
@@ -727,26 +769,31 @@
                     </div>
                 </div>
                 <div>
-                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">Clínica
+                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">
+                        Clínica
                     </h5>
                     <ul class="flex flex-col gap-3">
                         <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
-                                href="filosofia.html">Nuestra
-                                Filosofía</a></li>
+                                href="filosofia.html">Nuestra Filosofía</a></li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="galeria.html">Resultados</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">
                         Tratamientos</h5>
                     <ul class="flex flex-col gap-3">
-                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Rostro</a>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#facial">Rostro</a>
                         </li>
-                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors" href="#">Cuerpo</a>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#corporal">Cuerpo</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">Contacto
+                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">
+                        Contacto
                     </h5>
                     <ul class="flex flex-col gap-4">
                         <li class="flex items-start gap-3 text-sm text-slate-500">
@@ -755,7 +802,7 @@
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-500">
                             <span class="material-symbols-outlined text-primary text-lg">call</span>
-                            <span>+57 310 4950697</span>
+                            <span>+57 301 4339938</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-500">
                             <span class="material-symbols-outlined text-primary text-lg">mail</span>
@@ -768,14 +815,15 @@
                 class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-slate-400">© 2023 Dra. Mildred Moreno. Todos los derechos reservados.</p>
                 <div class="flex gap-6">
-                    <a class="text-xs text-slate-400 hover:text-primary" href="#">Política de Privacidad</a>
-                    <a class="text-xs text-slate-400 hover:text-primary" href="#">Términos de Servicio</a>
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Política de
+                        Privacidad</a>
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Términos de Servicio</a>
                 </div>
             </div>
         </div>
     </footer>
     <a class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-lg shadow-green-900/20 hover:scale-110 transition-transform duration-300 group"
-        href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20procedimientos%20de%20Medicina%20Est%C3%A9tica%20Avanzada%20con%20la%20Dra.%20Mildred%20Moreno."
+        href="https://wa.me/573014339938?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20procedimientos%20de%20Medicina%20Est%C3%A9tica%20Avanzada%20con%20la%20Dra.%20Mildred%20Moreno."
         target="_blank">
         <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -800,7 +848,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('section, article, .editorial-card').forEach(el => {
+        document.querySelectorAll('section, article, .editorial-card, .cta-section').forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
         });

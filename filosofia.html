@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -101,7 +101,8 @@
     <nav
         class="fixed w-full z-50 flex justify-between items-center px-[5%] py-4 bg-white/90 backdrop-blur-md border-b border-primary/10">
         <a href="index.html">
-            <img src="assets/images/logo.png" alt="Dra. Moreno" class="h-12 w-auto object-contain">
+            <img src="assets/images/logo.png" alt="Dra. Moreno" class="h-12 w-auto object-contain" loading="lazy"
+                decoding="async">
         </a>
         <ul class="hidden md:flex gap-10 list-none">
             <li><a href="index.html#about" class="nav-link text-accent-dark">SOBRE MÍ</a></li>
@@ -109,9 +110,9 @@
             <li><a href="galeria.html" class="nav-link text-accent-dark">RESULTADOS</a></li>
             <li><a href="blog.html" class="nav-link text-accent-dark">BLOG</a></li>
             <li><a href="filosofia.html" class="nav-link active">FILOSOFÍA</a></li>
-            <li><a href="index.html#contact" class="nav-link text-accent-dark">CONTACTO</a></li>
+            <li><a href="#contact" class="nav-link text-accent-dark">CONTACTO</a></li>
         </ul>
-        <a href="https://wa.me/573104950697"
+        <a href="https://wa.me/573014339938"
             class="hidden md:inline-block bg-primary text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:brightness-105 transition-all shadow-lg">
             Agendar Cita
         </a>
@@ -159,7 +160,8 @@
                 <div class="relative reveal">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                         <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop"
-                            alt="Profesionalismo Médico" class="w-full h-full object-cover">
+                            alt="Profesionalismo Médico" class="w-full h-full object-cover" loading="lazy"
+                            decoding="async">
                     </div>
                     <div
                         class="absolute -bottom-6 -left-6 bg-white p-8 rounded-xl shadow-xl border-l-4 border-primary max-w-xs">
@@ -261,22 +263,26 @@
         </section>
 
         <!-- Final CTA -->
-        <section class="py-24 px-[5%] text-center reveal">
-            <div class="max-w-3xl mx-auto bg-primary/10 p-16 rounded-[3rem] border border-primary/20 shadow-inner">
-                <h3 class="font-serif text-3xl md:text-5xl text-accent-dark mb-6">¿Lista para tu <span
-                        class="italic">Transformación?</span></h3>
-                <p class="text-slate-600 mb-10 text-lg font-light">Escríbenos hoy y agendamos una valoración profesional
-                    personalizada.</p>
-                <a href="https://wa.me/573104950697"
-                    class="bg-accent-dark text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-black transition-all shadow-xl">
+        <section class="py-20 px-6">
+            <div
+                class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
+                <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
+                    ¿Lista para tu <span class="italic text-primary">Transformación?</span>
+                </h2>
+                <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light">
+                    Escríbenos hoy y agendamos una valoración profesional personalizada.
+                </p>
+                <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+                    target="_blank"
+                    class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
                     Hablar con una Especialista
                 </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white border-t border-primary/10 pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-[5%] grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+    <footer class="bg-white border-t border-primary/10 pt-16 pb-10" id="contact">
+        <div class="max-w-7xl mx-auto px-[5%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div class="col-span-1 md:col-span-1">
                 <img src="assets/images/logo.png" alt="Dra. Mildred Moreno" class="h-16 mb-6">
                 <p class="text-slate-500 text-sm leading-relaxed">Maestría en medicina estética avanzada. Donde el arte
@@ -288,21 +294,24 @@
                     <li><a href="filosofia.html"
                             class="text-sm text-slate-500 hover:text-primary transition-colors">Nuestra Filosofía</a>
                     </li>
+                    <li><a href="galeria.html"
+                            class="text-sm text-slate-500 hover:text-primary transition-colors">Resultados</a>
+                    </li>
                 </ul>
             </div>
             <div>
                 <h5 class="font-bold text-accent-dark uppercase tracking-wider text-xs mb-6 text-primary">Servicios</h5>
                 <ul class="flex flex-col gap-3">
-                    <li><a href="servicios.html"
+                    <li><a href="servicios.html#facial"
                             class="text-sm text-slate-500 hover:text-primary transition-colors">Facial</a></li>
-                    <li><a href="servicios.html"
+                    <li><a href="servicios.html#corporal"
                             class="text-sm text-slate-500 hover:text-primary transition-colors">Corporal</a></li>
                 </ul>
             </div>
             <div>
                 <h5 class="font-bold text-accent-dark uppercase tracking-wider text-xs mb-6 text-primary">Contacto</h5>
                 <p class="text-sm text-slate-500 mb-2">Cl. 53b #24-80, Bogotá</p>
-                <p class="text-sm text-slate-500 mb-2">+57 310 4950697</p>
+                <p class="text-sm text-slate-500 mb-2">+57 301 4339938</p>
                 <p class="text-sm text-slate-500">citas@dramoreno.com</p>
             </div>
         </div>

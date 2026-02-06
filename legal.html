@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso Legal - Dra. Mildred Moreno</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Newsreader', serif;
+        }
+
+        .bg-primary {
+            background-color: #A7C7E7;
+        }
+
+        .text-primary {
+            color: #A7C7E7;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <nav class="p-6 border-b border-slate-200 bg-white">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="assets/images/logo.png" alt="Logo" class="h-10">
+            </a>
+            <a href="index.html" class="text-sm font-bold uppercase tracking-widest text-primary">Volver al Inicio</a>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 py-20">
+        <h1 class="text-4xl md:text-5xl font-medium mb-10 text-slate-800">Aviso Legal y <span
+                class="italic">Privacidad</span></h1>
+
+        <div class="prose prose-slate lg:prose-lg max-w-none space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold mb-4">1. Identidad y Responsabilidad</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Este sitio web es propiedad de la Dra. Mildred Moreno, profesional en medicina estética avanzada.
+                    Los contenidos aquí presentados tienen un propósito puramente informativo sobre los servicios
+                    médicos y estéticos ofrecidos, y no sustituyen una valoración médica presencial.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-4">2. Política de Privacidad</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    De acuerdo con la Ley de Protección de Datos Personales (Ley 1581 de 2012 en Colombia), informamos
+                    que los datos suministrados a través de nuestros canales de contacto (como WhatsApp y correo
+                    electrónico) son tratados con absoluta confidencialidad y utilizados exclusivamente para la gestión
+                    de citas y asesoría personalizada.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-4">3. Consentimiento Informado</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Todos los procedimientos médicos estéticos requieren un consentimiento informado firmado físicamente
+                    por el paciente antes de su realización, donde se detallan riesgos, beneficios y cuidados
+                    post-procedimiento.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-4">4. Propiedad Intelectual</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Las imágenes de resultados presentadas en la galería son casos reales y su uso está autorizado por
+                    los pacientes para fines didácticos e informativos. Queda prohibida su reproducción sin autorización
+                    previa.
+                </p>
+            </section>
+        </div>
+
+        <div class="mt-20 pt-10 border-t border-slate-200 text-center">
+            <a href="https://wa.me/573014339938"
+                class="inline-block bg-primary text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-opacity-90 transition-all shadow-lg">
+                Contactar por Consultas Legales
+            </a>
+        </div>
+    </main>
+
+    <!-- CTA Final -->
+    <section class="py-20 px-6">
+        <div
+            class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
+            <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
+                ¿Lista para tu <span class="italic text-primary">Transformación?</span>
+            </h2>
+            <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Escríbenos hoy y agendamos una valoración profesional personalizada.
+            </p>
+            <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+                target="_blank"
+                class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
+                Hablar con una Especialista
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-10 text-center px-6">
+        <p class="text-xs opacity-50 uppercase tracking-[0.2em]">Dra. Mildred Moreno - Medicina Estética Avanzada © 2026
+        </p>
+    </footer>
+
+    <script>
+        // Reveal on Scroll Logic
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
