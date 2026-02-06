@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Dra. Mildred Moreno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f9ff;
+            --accent-blue: #A7C7E7;
+            /* Pastel blue accent from main site */
+            --accent-soft: #f0f7ff;
+            /* Softer blue BG */
+            --text-main: #111a21;
+            /* Charcoal from main site */
+            --text-muted: #5e6b76;
+            --border-color: rgba(167, 199, 231, 0.25);
+            /* Blue border */
+            --card-bg: #ffffff;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(245, 249, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-blue);
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .btn-cta {
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            background: #b08d4b;
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+
+        /* Layout Main */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 140px 20px 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-header::before,
+        .section-header::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0 3rem;
+            color: var(--text-main);
+        }
+
+        /* Grid Services */
+        .grid-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 120px;
+            align-items: center;
+        }
+
+        .grid-row.reverse {
+            direction: rtl;
+        }
+
+        .grid-row.reverse .text-content {
+            direction: ltr;
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/5;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(105%) brightness(102%);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.08);
+        }
+
+        .text-content {
+            padding: 20px;
+        }
+
+        .service-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .service-name {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            color: #1a2a3a;
+        }
+
+        .service-description {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .benefit-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent-blue);
+            background: var(--accent-soft);
+            padding: 4px;
+            border-radius: 50%;
+        }
+
+        /* Decoration */
+        .glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(123, 174, 210, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Mobile Menu styles integrated */
+        #mobile-menu-btn {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-row,
+            .grid-row.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 100px 20px 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            #mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--text-main);
+            }
+
+            /* Mobile Menu Integration */
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(245, 249, 255, 0.98);
+                backdrop-filter: blur(10px);
+                z-index: 200;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu a {
+                text-decoration: none;
+                color: var(--text-main);
+                font-size: 1.2rem;
+                font-family: var(--font-serif);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--text-main);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <!-- Use material symbols for icons as in main page if needed, but SVG in styles matches user request -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav>
+        <button id="mobile-menu-btn">
+            <span class="material-symbols-outlined" style="font-size: 2rem;">menu</span>
+        </button>
+        <a href="index.html">
+            <img src="assets/images/logo.png" alt="Dra. Moreno" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="filosofia.html">FILOSOFÍA</a></li>
+            <li><a href="#" class="active">SERVICIOS</a></li>
+            <li><a href="index.html#results">RESULTADOS</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="index.html#contact">CONTACTO</a></li>
+        </ul>
+        <a href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
+            target="_blank" class="btn-cta">Agendar Cita</a>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-btn" id="closeMenuBtn">
+            <span class="material-symbols-outlined" style="font-size: 2.5rem;">close</span>
+        </button>
+        <a href="filosofia.html">Sobre Mí / Filosofía</a>
+        <a href="#" style="color: var(--accent-blue);">Servicios</a>
+        <a href="index.html#results">Resultados</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contacto</a>
+        <a href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
+            class="btn-cta">Agendar Cita</a>
+    </div>
+
+    <div class="glow" style="top: -10%; right: -10%;"></div>
+    <div class="glow" style="bottom: 20%; left: -15%;"></div>
+
+    <main class="container">
+
+        <!-- Section: Corporal -->
+        <header class="section-header">
+            <h2 class="section-title">Corporal</h2>
+        </header>
+
+        <div class="grid-row">
+            <div class="image-wrapper">
+                <img src="assets/images/service-body.png"
+                    onerror="this.src='https://images.unsplash.com/photo-1515377666659-81829804167e?auto=format&fit=crop&q=80&w=1000'"
+                    alt="Lipoescultura VASER">
+            </div>
+            <div class="text-content">
+                <span class="service-tag">Alta Definición</span>
+                <h3 class="service-name">Lipoescultura VASER HD</h3>
+                <p class="service-description">
+                    Tecnología de vanguardia diseñada para esculpir la silueta con precisión milimétrica. La tecnología
+                    ultrasónica preserva los tejidos mientras define la musculatura atlética de forma natural.
+                </p>
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Definición muscular de alto impacto
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Recuperación optimizada y menor inflamación
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Máxima retracción de la piel
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-row reverse">
+            <div class="image-wrapper">
+                <img src="assets/images/service-wellness.png"
+                    onerror="this.src='https://images.unsplash.com/photo-1556229167-7203679bc213?auto=format&fit=crop&q=80&w=1000'"
+                    alt="Lipotransferencia Glútea">
+            </div>
+            <div class="text-content">
+                <span class="service-tag">Volumen Natural</span>
+                <h3 class="service-name">Lipotransferencia Glútea</h3>
+                <p class="service-description">
+                    Utilizamos tu propia grasa procesada para armonizar y proyectar el contorno corporal, logrando
+                    resultados suaves, seguros y permanentes sin necesidad de implantes sintéticos.
+                </p>
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Resultado orgánico y armónico
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Sin riesgo de rechazo (material propio)
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Remodelación de zona donante y receptora
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section: Facial -->
+        <header class="section-header">
+            <h2 class="section-title">Facial</h2>
+        </header>
+
+        <div class="grid-row">
+            <div class="image-wrapper">
+                <img src="assets/images/service-facial.png"
+                    onerror="this.src='https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1000'"
+                    alt="Lipopapada">
+            </div>
+            <div class="text-content">
+                <span class="service-tag">Armonización</span>
+                <h3 class="service-name">Lipopapada con Perfilación</h3>
+                <p class="service-description">
+                    Eliminación precisa de la grasa submentoniana combinada con la definición del borde mandibular para
+                    un perfil más estilizado, joven y sofisticado.
+                </p>
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Mentón proyectado y mandíbula definida
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Efecto visual de rejuvenecimiento inmediato
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Additional Facial Treatments Section -->
+        <div class="grid-row reverse">
+            <div class="image-wrapper">
+                <img src="assets/images/blog-face.png"
+                    onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000'"
+                    alt="Resultados Facial">
+            </div>
+            <div class="text-content">
+                <span class="service-tag">No Quirúrgico</span>
+                <h3 class="service-name">Armonización Facial & Bioestimulación</h3>
+                <p class="service-description">
+                    Tratamientos mínimamente invasivos para restaurar volúmenes, suavizar líneas y mejorar la calidad de
+                    la piel desde adentro.
+                </p>
+                <ul class="benefit-list">
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Toxina Botulínica & Hilos Tensores
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Ácido Hialurónico (Labios/Rostro)
+                    </li>
+                    <li class="benefit-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Bioestimuladores de Colágeno
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA Final -->
+        <section class="reveal" style="padding: 6rem 5%; text-align: center;">
+            <div
+                style="max-width: 800px; margin: 0 auto; background: white; padding: 4rem; border-radius: 2rem; box-shadow: 0 20px 40px rgba(167, 199, 231, 0.15); border: 1px solid rgba(167, 199, 231, 0.2);">
+                <h3 class="font-serif" style="font-size: 2.5rem; color: var(--text-main); margin-bottom: 1.5rem;">
+                    ¿Deseas una valoración personalizada?</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem;">Agenda tu cita hoy mismo
+                    y descubre cómo podemos realzar tu belleza natural.</p>
+                <a href="https://wa.me/573104950697?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+                    target="_blank" class="btn-cta" style="display: inline-block; text-decoration: none;">Hablar con una
+                    Especialista</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Reveal on Scroll Logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.grid-row, .section-header').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Dra. Mildred Moreno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A7C7E7",
+                        "accent-blue": "#A7C7E7",
+                        "text-main": "#111a21",
+                    },
+                    fontFamily: {
+                        "serif": ['Cormorant Garamond', 'serif'],
+                        "sans": ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg-color: #f5f9ff;
+            --accent-blue: #A7C7E7;
+            --border-color: rgba(167, 199, 231, 0.25);
+            --text-main: #111a21;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(245, 249, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-link {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-blue);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Gallery Styles */
+        .gallery-item {
+            aspect-ratio: 4/5;
+        }
+
+        /* Before/After Specifics */
+        .img-before {
+            filter: grayscale(100%) contrast(1.1);
+            /* Simulation of 'Before' state */
+        }
+
+        .gallery-caption {
+            background: linear-gradient(to top, rgba(17, 26, 33, 0.95), transparent);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav class="fixed w-full z-50 flex justify-between items-center px-[5%] py-4">
+        <button id="mobile-menu-btn" class="md:hidden text-text-main">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+        <a href="index.html">
+            <img src="assets/images/logo.png" alt="Dra. Moreno" class="h-12 w-auto object-contain">
+        </a>
+        <ul class="hidden md:flex gap-10 list-none">
+            <li><a href="index.html#about" class="nav-link text-text-main">SOBRE MÍ</a></li>
+            <li><a href="servicios.html" class="nav-link text-text-main">SERVICIOS</a></li>
+            <li><a href="#" class="nav-link text-text-main active">RESULTADOS</a></li>
+            <li><a href="blog.html" class="nav-link text-text-main">BLOG</a></li>
+            <li><a href="index.html#contact" class="nav-link text-text-main">CONTACTO</a></li>
+        </ul>
+        <a href="https://wa.me/573104950697?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Dra.%20Mildred%20Moreno."
+            target="_blank"
+            class="hidden md:inline-block bg-primary text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#b08d4b] transition-all shadow-lg hover:-translate-y-0.5">
+            Agendar Cita
+        </a>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 bg-[#f5f9ff]/98 z-[200] flex flex-col justify-center items-center gap-8"
+        id="mobileMenu">
+        <button class="absolute top-8 right-8 text-text-main" id="closeMenuBtn">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <a href="filosofia.html" class="text-xl font-serif uppercase tracking-widest text-text-main">Sobre Mí /
+            Filosofía</a>
+        <a href="servicios.html" class="text-xl font-serif uppercase tracking-widest text-text-main">Servicios</a>
+        <a href="#" class="text-xl font-serif uppercase tracking-widest text-primary">Resultados</a>
+        <a href="blog.html" class="text-xl font-serif uppercase tracking-widest text-text-main">Blog</a>
+        <a href="index.html#contact" class="text-xl font-serif uppercase tracking-widest text-text-main">Contacto</a>
+        <a href="https://wa.me/573104950697"
+            class="bg-primary text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-widest">Agendar
+            Cita</a>
+    </div>
+
+    <main class="max-w-[1400px] mx-auto pt-40 pb-20 px-5">
+        <header class="flex justify-center items-center mb-16 relative">
+            <div class="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent flex-grow"></div>
+            <h2
+                class="font-serif text-4xl md:text-5xl font-light uppercase tracking-widest px-12 text-center text-text-main">
+                Transformaciones
+            </h2>
+            <div class="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent flex-grow"></div>
+        </header>
+
+        <p class="text-center text-slate-500 max-w-2xl mx-auto mb-12 font-light">
+            Desliza el cursor sobre las imágenes para ver el resultado final (Después).
+            <br>
+            <span
+                class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded mt-2 inline-block border border-yellow-200">
+                Nota: Para cambiar fotos, actualiza el "src" de las imágenes. La primera es el RESULTADO, la segunda es
+                el ANTES.
+            </span>
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1. VASER HD -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <!-- 
+                    PARA CAMBIAR FOTOS DE ESTE CASO:
+                    1. Reemplaza el link de abajo con tu foto de RESULTADO (ej: assets/images/gallery/caso1-despues.jpg)
+                -->
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop"
+                    alt="Después"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                <!-- 
+                    2. Reemplaza el link de abajo con tu foto de ANTES (ej: assets/images/gallery/caso1-antes.jpg)
+                    Nota: La clase 'img-before' la pondrá en blanco y negro automáticamente.
+                -->
+                <img src="https://images.unsplash.com/photo-1579487785973-74d2ca7abf5c?q=80&w=800&auto=format&fit=crop"
+                    alt="Antes"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0">
+
+                <!-- Tags -->
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+                    Antes
+                </span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                    Después
+                </span>
+
+                <!-- Caption -->
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-white/80 text-sm font-light">Definición abdominal atlética</p>
+                </div>
+            </div>
+
+            <!-- 2. Lipopapada -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipopapada HD</h4>
+                    <p class="text-white/80 text-sm font-light">Perfilación mandibular</p>
+                </div>
+            </div>
+
+            <!-- 3. Rinomodelación -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1519415510236-855928a3397d?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Rinomodelación</h4>
+                    <p class="text-white/80 text-sm font-light">Corrección sin cirugía</p>
+                </div>
+            </div>
+
+            <!-- 4. Lipotransferencia -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1556229167-7203679bc213?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipotransferencia</h4>
+                    <p class="text-white/80 text-sm font-light">Volumen glúteo natural</p>
+                </div>
+            </div>
+
+            <!-- 5. Armonización -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Armonización</h4>
+                    <p class="text-white/80 text-sm font-light">Equilibrio facial total</p>
+                </div>
+            </div>
+
+            <!-- 6. Labios -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1586790170053-2005fba8a3b1?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1596704017235-d91d1e433f4a?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Labios Rusos</h4>
+                    <p class="text-white/80 text-sm font-light">Volumen e hidratación</p>
+                </div>
+            </div>
+
+            <!-- 7 -> 15 (Repeating structure with different placeholders) -->
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Fox Eyes</h4>
+                    <p class="text-white/80 text-sm font-light">Hilos tensores temporales</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Piel de Porcelana</h4>
+                    <p class="text-white/80 text-sm font-light">Revitalización profunda</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Marcación Mandibular</h4>
+                    <p class="text-white/80 text-sm font-light">Ácido Hialurónico</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipo de Brazos</h4>
+                    <p class="text-white/80 text-sm font-light">Reducción y tensado</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Rejuvenecimiento</h4>
+                    <p class="text-white/80 text-sm font-light">Manos y Cuello</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Full Face</h4>
+                    <p class="text-white/80 text-sm font-light">Tratamiento integral</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Glow Up</h4>
+                    <p class="text-white/80 text-sm font-light">Luminosidad instantánea</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1620052087057-bfd8235f5874?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1620052087057-bfd8235f5874?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Bioestimuladores</h4>
+                    <p class="text-white/80 text-sm font-light">Radiesse & Sculptra</p>
+                </div>
+            </div>
+
+            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1549488497-6953f47b561c?q=80&w=800&auto=format&fit=crop"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="https://images.unsplash.com/photo-1549488497-6953f47b561c?q=80&w=800&auto=format&fit=crop"
+                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
+                <span
+                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
+                <span
+                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
+                <div
+                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Toxina Botulínica</h4>
+                    <p class="text-white/80 text-sm font-light">Prevención de arrugas</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- CTA Final -->
+        <section class="reveal max-w-4xl mx-auto text-center py-24 px-6">
+            <div class="bg-white p-12 rounded-[2.5rem] shadow-xl border border-primary/20">
+                <h3 class="font-serif text-4xl text-text-main mb-6 italic">¿Tu próximo cambio?</h3>
+                <p class="text-slate-500 mb-10 text-lg font-light">Resultados reales para personas reales. Agenda tu
+                    valoración hoy y comencemos tu proceso.</p>
+                <a href="https://wa.me/573104950697?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
+                    target="_blank"
+                    class="inline-block bg-primary text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:brightness-105 transition-all shadow-xl shadow-primary/20">
+                    Agenda tu Valoración Hoy
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Reveal on Scroll Logic
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.gallery-item, header').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobileMenu');
+        const close = document.getElementById('closeMenuBtn');
+        const links = menu.querySelectorAll('a');
+
+        function toggle() {
+            menu.classList.toggle('translate-x-full');
+        }
+
+        btn.addEventListener('click', toggle);
+        close.addEventListener('click', toggle);
+        links.forEach(l => l.addEventListener('click', toggle));
+    </script>
+</body>
+
+</html>

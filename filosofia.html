@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filosofía y Testimonios - Dra. Mildred Moreno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A7C7E7",
+                        "accent-dark": "#111a21",
+                        "bg-soft": "#f5f9ff",
+                    },
+                    fontFamily: {
+                        "serif": ['Cormorant Garamond', 'serif'],
+                        "sans": ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #A7C7E7;
+            --accent-dark: #111a21;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f5f9ff;
+            color: var(--accent-dark);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(17, 26, 33, 0.6), rgba(17, 26, 33, 0.3)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid rgba(167, 199, 231, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(167, 199, 231, 0.15);
+        }
+
+        .quote-icon {
+            color: var(--primary);
+            opacity: 0.3;
+            font-size: 3rem;
+            font-family: serif;
+        }
+    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav
+        class="fixed w-full z-50 flex justify-between items-center px-[5%] py-4 bg-white/90 backdrop-blur-md border-b border-primary/10">
+        <a href="index.html">
+            <img src="assets/images/logo.png" alt="Dra. Moreno" class="h-12 w-auto object-contain">
+        </a>
+        <ul class="hidden md:flex gap-10 list-none">
+            <li><a href="index.html#about" class="nav-link text-accent-dark">SOBRE MÍ</a></li>
+            <li><a href="servicios.html" class="nav-link text-accent-dark">SERVICIOS</a></li>
+            <li><a href="galeria.html" class="nav-link text-accent-dark">RESULTADOS</a></li>
+            <li><a href="blog.html" class="nav-link text-accent-dark">BLOG</a></li>
+            <li><a href="filosofia.html" class="nav-link active">FILOSOFÍA</a></li>
+            <li><a href="index.html#contact" class="nav-link text-accent-dark">CONTACTO</a></li>
+        </ul>
+        <a href="https://wa.me/573104950697"
+            class="hidden md:inline-block bg-primary text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:brightness-105 transition-all shadow-lg">
+            Agendar Cita
+        </a>
+    </nav>
+
+    <header class="h-[70vh] hero-gradient flex items-center justify-center text-center text-white pt-20">
+        <div class="max-w-4xl px-5">
+            <span class="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4 block">Compromiso con la
+                Excelencia</span>
+            <h1 class="font-serif text-5xl md:text-7xl font-light leading-tight mb-6">
+                El Arte de la <br><span class="italic">Precisión Médica</span>
+            </h1>
+            <p class="text-lg md:text-xl font-light opacity-90 max-w-2xl mx-auto">
+                Donde la ciencia se encuentra con la estética para revelar tu versión más auténtica y sofisticada.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Philosophy Section -->
+        <section class="py-24 px-[5%] max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="font-serif text-4xl md:text-5xl text-accent-dark mb-8 leading-tight">
+                        "No solo tratamos. <br><span class="italic text-primary">Esculpimos."</span>
+                    </h2>
+                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg font-light">
+                        <p>
+                            La <span class="font-semibold text-accent-dark">Dra. Mildred Moreno</span> combina la
+                            precisión médica con un ojo artístico para crear resultados naturales y sofisticados que
+                            realzan tu belleza única en lugar de ocultarla.
+                        </p>
+                        <p>
+                            En un mundo saturado de estándares genéricos, nosotros elegimos el equilibrio, la simetría y
+                            la elegancia. Cada procedimiento es una obra personalizada, diseñada bajo los más estrictos
+                            estándares de seguridad y profesionalismo.
+                        </p>
+                        <p>
+                            Nuestra filosofía se basa en la <span class="italic">estética invisible</span>: aquella que
+                            te hace lucir mejor, más joven y radiante, sin que el mundo note el rastro del
+                            procedimiento, solo la luz de tu transformación.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative reveal">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop"
+                            alt="Profesionalismo Médico" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-white p-8 rounded-xl shadow-xl border-l-4 border-primary max-w-xs">
+                        <p class="text-primary font-bold text-3xl mb-1">15+</p>
+                        <p class="text-accent-dark text-xs uppercase tracking-widest font-semibold">Años de Maestría
+                            Médica</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="bg-accent-dark py-20 text-white">
+            <div class="max-w-6xl mx-auto px-[5%] grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="reveal">
+                    <span class="block text-4xl md:text-5xl font-serif text-primary mb-2">5,000+</span>
+                    <span class="text-xs uppercase tracking-[0.2em] opacity-60">Vidas Transformadas</span>
+                </div>
+                <div class="reveal">
+                    <span class="block text-4xl md:text-5xl font-serif text-primary mb-2">100%</span>
+                    <span class="text-xs uppercase tracking-[0.2em] opacity-60">Compromiso Ético</span>
+                </div>
+                <div class="reveal">
+                    <span class="block text-4xl md:text-5xl font-serif text-primary mb-2">VASER</span>
+                    <span class="text-xs uppercase tracking-[0.2em] opacity-60">Tecnología de Punta</span>
+                </div>
+                <div class="reveal">
+                    <span class="block text-4xl md:text-5xl font-serif text-primary mb-2">98%</span>
+                    <span class="text-xs uppercase tracking-[0.2em] opacity-60">Pacientes Satisfechos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-24 px-[5%] bg-slate-50">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-3 block">Testimonios</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-accent-dark">Palabras que nos <span
+                        class="italic text-primary">Inspiran</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-10 rounded-2xl reveal">
+                    <span class="quote-icon">“</span>
+                    <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
+                        "La Dra. Moreno no solo es una excelente profesional, sino una artista. Mi rinomodelación quedó
+                        tan natural que nadie cree que es un procedimiento. Su equipo me hizo sentir segura en todo
+                        momento."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                            MC</div>
+                        <div>
+                            <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Mariana Castro</h5>
+                            <p class="text-slate-400 text-xs">Armonización Facial</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-10 rounded-2xl reveal" style="transition-delay: 100ms;">
+                    <span class="quote-icon">“</span>
+                    <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
+                        "Buscaba definición abdominal y con el sistema VASER la Dra. superó mis expectativas. El
+                        profesionalismo de la clínica es impecable, desde la primera cita hasta el postoperatorio."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                            JP</div>
+                        <div>
+                            <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Juan Pablo Méndez
+                            </h5>
+                            <p class="text-slate-400 text-xs">Lipoescultura VASER HD</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-10 rounded-2xl reveal" style="transition-delay: 200ms;">
+                    <span class="quote-icon">“</span>
+                    <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
+                        "Hice un tratamiento de Full Face y el resultado es increíblemente sutil. Me veo descansada, con
+                        la piel luminosa. Es la única doctora a la que confío mi rostro médico-estéticamente."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                            SR</div>
+                        <div>
+                            <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Sofía Rodríguez</h5>
+                            <p class="text-slate-400 text-xs">Pack Rejuvenecimiento</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 px-[5%] text-center reveal">
+            <div class="max-w-3xl mx-auto bg-primary/10 p-16 rounded-[3rem] border border-primary/20 shadow-inner">
+                <h3 class="font-serif text-3xl md:text-5xl text-accent-dark mb-6">¿Lista para tu <span
+                        class="italic">Transformación?</span></h3>
+                <p class="text-slate-600 mb-10 text-lg font-light">Escríbenos hoy y agendamos una valoración profesional
+                    personalizada.</p>
+                <a href="https://wa.me/573104950697"
+                    class="bg-accent-dark text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-black transition-all shadow-xl">
+                    Hablar con una Especialista
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-primary/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-[5%] grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <img src="assets/images/logo.png" alt="Dra. Mildred Moreno" class="h-16 mb-6">
+                <p class="text-slate-500 text-sm leading-relaxed">Maestría en medicina estética avanzada. Donde el arte
+                    y la ciencia esculpen tu mejor versión.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-accent-dark uppercase tracking-wider text-xs mb-6 text-primary">Clínica</h5>
+                <ul class="flex flex-col gap-3">
+                    <li><a href="filosofia.html"
+                            class="text-sm text-slate-500 hover:text-primary transition-colors">Nuestra Filosofía</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-accent-dark uppercase tracking-wider text-xs mb-6 text-primary">Servicios</h5>
+                <ul class="flex flex-col gap-3">
+                    <li><a href="servicios.html"
+                            class="text-sm text-slate-500 hover:text-primary transition-colors">Facial</a></li>
+                    <li><a href="servicios.html"
+                            class="text-sm text-slate-500 hover:text-primary transition-colors">Corporal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-accent-dark uppercase tracking-wider text-xs mb-6 text-primary">Contacto</h5>
+                <p class="text-sm text-slate-500 mb-2">Cl. 53b #24-80, Bogotá</p>
+                <p class="text-sm text-slate-500 mb-2">+57 310 4950697</p>
+                <p class="text-sm text-slate-500">citas@dramoreno.com</p>
+            </div>
+        </div>
+        <div class="text-center pt-8 border-t border-primary/5 text-[10px] text-slate-400 uppercase tracking-widest">
+            © 2026 Dra. Mildred Moreno - Medicina Estética Avanzada
+        </div>
+    </footer>
+
+    <script>
+        // Reveal on Scroll
+        const observerOptions = { threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
