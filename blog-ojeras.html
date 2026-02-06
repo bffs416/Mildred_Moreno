@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -27,7 +27,8 @@
                         "dark-grey": "#2d2d2d",
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"]
+                        "display": ["Cormorant Garamond", "serif"],
+                        "sans": ["Outfit", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -70,7 +71,7 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+    class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
     <!-- Navbar -->
     <nav
         class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
@@ -89,7 +90,7 @@
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy" decoding="async">
                     </a>
                 </div>
@@ -148,54 +149,93 @@
             <div class="flex items-center justify-center gap-4 text-slate-500 text-sm">
                 <span>Por Dra. Mildred Moreno</span>
                 <span>•</span>
-                <span>3 min de lectura</span>
+                <span>5 min de lectura</span>
             </div>
         </header>
 
         <!-- Featured Image -->
         <div class="mb-16 rounded-2xl overflow-hidden shadow-2xl reveal relative aspect-video">
-            <img src="https://images.unsplash.com/photo-1519699047748-40ba5266f2bb?q=80&w=1000&auto=format&fit=crop"
-                alt="Tratamiento de Ojeras" class="w-full h-full object-cover">
+            <img src="assets/images/gallery/blog-ojeras.jpg" alt="Tratamiento de Ojeras"
+                class="w-full h-full object-cover">
         </div>
 
         <!-- Content -->
         <div
-            class="prose prose-lg dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal">
+            class="prose prose-xl dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal max-w-4xl">
             <p
-                class="text-xl md:text-2xl leading-relaxed text-slate-800 dark:text-slate-100 mb-10 border-l-4 border-primary pl-6">
-                "Parece que no hubiera dormido en días, incluso después de descansar bien". Esta es una queja frecuente.
-                Las ojeras son uno de los primeros signos de envejecimiento, pero afortunadamente, tienen solución
-                rápida.
+                class="text-2xl md:text-3xl leading-relaxed text-slate-800 dark:text-slate-100 mb-12 border-l-4 border-primary pl-8">
+                "Parece que no hubiera dormido en días, incluso después de descansar bien". Esta es la queja más
+                frecuente en consulta cuando hablamos del contorno de ojos.
             </p>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">¿Por qué tenemos ojeras?</h3>
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">¿Por qué tenemos
+                ojeras?</h3>
             <p class="mb-6">
-                No siempre es cansancio. Con el tiempo, perdemos el "cojinete" de grasa que está bajo los ojos, haciendo
-                que la piel se hunda y se marque el surco lagrimal. Esto crea una sombra que da aspecto de fatiga
-                crónica.
+                No todas las ojeras son iguales, y entender su origen es el primer paso para tratarlas con éxito.
+                Contrario a la creencia popular, no siempre se deben a la falta de sueño. Identificamos principalmente
+                tres tipos:
             </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div
+                    class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm transition-transform hover:-translate-y-1">
+                    <span
+                        class="font-bold text-primary block mb-3 uppercase tracking-widest text-sm">Pigmentarias</span>
+                    <p class="text-sm text-slate-500">Coloración marrón por exceso de melanina. Comunes en pieles
+                        latinas y por exposición solar sin protección.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm transition-transform hover:-translate-y-1">
+                    <span class="font-bold text-primary block mb-3 uppercase tracking-widest text-sm">Vasculares</span>
+                    <p class="text-sm text-slate-500">Tonos azulados o violáceos causados por una piel muy fina que deja
+                        ver los vasos sanguíneos subyacentes.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm transition-transform hover:-translate-y-1">
+                    <span
+                        class="font-bold text-primary block mb-3 uppercase tracking-widest text-sm">Estructurales</span>
+                    <p class="text-sm text-slate-500">Aparecen por la pérdida de grasa en el surco lagrimal, creando un
+                        hundimiento que proyecta una sombra constante.</p>
+                </div>
+            </div>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">La Solución con Ácido
-                Hialurónico</h3>
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">Tratamientos Médicos
+                Avanzados</h3>
             <p class="mb-6">
-                El tratamiento de elección es el relleno con ácido hialurónico formulado específicamente para esta zona
-                tan delicada (como Redensity II). Este material no solo rellena el hundimiento para eliminar la sombra,
-                sino que también contiene vitaminas para aclarar y nutrir la piel alrededor de los ojos.
+                Para las ojeras estructurales (hundidas), el tratamiento estrella es la reposición de volumen con
+                **ácido hialurónico específico**. No usamos cualquier relleno; seleccionamos fórmulas diseñadas
+                especialmente para el párpado inferior, que no retienen agua en exceso y evitan la inflamación
+                posterior.
+            </p>
+            <p class="mb-6">
+                Cuando el problema es pigmentario o de calidad de piel, optamos por <strong>peelings químicos
+                    médicos</strong> o protocolos de bioestimulación que aclaran la zona y engrosan la dermis para que
+                los vasos no sean tan visibles.
             </p>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Beneficios Inmediatos</h3>
-            <ul class="list-disc pl-6 mb-10 space-y-4 marker:text-primary">
-                <li><strong>Efecto Wow:</strong> El cambio es visible inmediatamente al salir del consultorio.</li>
-                <li><strong>Indoloro:</strong> Se utiliza cánula (una aguja de punta roma) para minimizar molestias y
-                    moretones.</li>
-                <li><strong>Duradero:</strong> Los resultados pueden durar entre 12 y 18 meses.</li>
-            </ul>
+            <div class="my-16 bg-primary/5 p-10 rounded-3xl border border-primary/10">
+                <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Beneficios del Relleno de Ojeras</h4>
+                <ul class="space-y-4 list-none pl-0">
+                    <li class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">visibility</span>
+                        <span>Efecto de descanso inmediato (Mirada "Wow").</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">verified</span>
+                        <span>Tratamiento rápido (15-20 minutos).</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">history</span>
+                        <span>Duración prolongada (entre 10 y 14 meses).</span>
+                    </li>
+                </ul>
+            </div>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Seguridad Ante Todo</h3>
-            <p class="mb-10">
-                El área de los ojos es anatómicamente compleja. Es vital acudir a un experto en anatomía facial para
-                evitar complicaciones. La Dra. Moreno utiliza técnicas avanzadas para asegurar un resultado natural y
-                seguro, devolviendo la luz a tu mirada sin cambiar tu expresión.
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">Consideraciones
+                Importantes</h3>
+            <p class="mb-12">
+                La zona de la ojera es anatómicamente compleja. Debe ser tratada solo por médicos especialistas que
+                utilicen **cánulas de punta roma** para minimizar hematomas y asegurar una distribución perfecta del
+                producto. El resultado debe ser una transición suave y continua entre la mejilla y el párpado.
             </p>
         </div>
 
@@ -213,23 +253,7 @@
 
     </article>
 
-    <!-- CTA Final -->
-    <section class="py-20 px-6">
-        <div
-            class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
-            <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
-                ¿Lista para tu <span class="italic text-primary">Transformación?</span>
-            </h2>
-            <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                Escríbenos hoy y agendamos una valoración profesional personalizada.
-            </p>
-            <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
-                target="_blank"
-                class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
-                Hablar con una Especialista
-            </a>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer
@@ -239,7 +263,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-6">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-16 w-auto object-contain">
                     </div>
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload critical assets -->
-    <link rel="preload" as="image" href="assets/images/hero.png" />
+    <link rel="preload" as="image" href="assets/images/gallery/hero.webp" />
     <link
         href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
         rel="stylesheet" media="print" onload="this.media='all'" />
@@ -68,21 +68,22 @@
         }
 
         .comparison-overlay {
-            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
-            transition: clip-path 0.5s ease-in-out;
+            clip-path: inset(0 0 0 100%);
+            transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .comparison-container:hover .comparison-overlay {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: inset(0 0 0 0);
         }
 
         .comparison-handle {
-            left: 50%;
-            transition: left 0.5s ease-in-out, opacity 0.3s;
+            left: 100%;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .comparison-container:hover .comparison-handle {
-            left: 0%;
+            left: 50%;
             opacity: 0;
         }
 
@@ -142,7 +143,7 @@
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy">
                     </a>
                 </div>
@@ -193,8 +194,7 @@
 
     <header class="relative w-full h-[85vh] min-h-[600px] overflow-hidden group">
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] ease-out group-hover:scale-105"
-            data-alt="Hero image - Facial treatment"
-            style="background-image: url('assets/images/hero.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_a90ajJD3a-YzRpXmVtjIO3Edp3HLVR0FBCvzNPNZ058H7fW_AJmqMLzuu215u23XktCcS7_23rGE8Gw58le_gqjjhGGNzymaLwClHtPUmc7BVHqTVuxwVzSQeFiMYi_8T1qbpSwPfeo4hAcqJ2Ily3MXpPfzmr92dlJeZ6ngQau4KinL_kCA-H8zBkZAFgfwZ30kw3FxJc3zunZ3gf0aBoImMqYPTFV1Qv75zNajJZG51kCAPaw2SsOi324i61CbYFmd9PsS9tAq');">
+            data-alt="Hero image - Facial treatment" style="background-image: url('assets/images/gallery/hero.webp');">
         </div>
         <div
             class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-background-light dark:to-background-dark">
@@ -210,14 +210,15 @@
                     <span class="italic font-light">Refinando la</span> <br />
                     Obra Maestra
                 </h1>
-                <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-6">
-                    <a href="filosofia.html"
-                        class="bg-white text-slate-900 px-8 py-3 rounded-full text-sm flex items-center justify-center font-bold tracking-widest uppercase hover:bg-primary hover:text-white transition-all duration-300 min-w-[180px]">
-                        Nuestra Filosofía
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-8">
+                    <a href="https://wa.me/573014339938?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+                        target="_blank"
+                        class="bg-primary text-white px-10 py-4 rounded-full text-sm flex items-center justify-center font-bold tracking-[0.1em] uppercase hover:bg-white hover:text-slate-900 transition-all duration-300 shadow-xl shadow-primary/40 min-w-[200px]">
+                        Agendar Cita
                     </a>
                     <a href="servicios.html"
-                        class="backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full text-sm flex items-center justify-center font-bold tracking-widest uppercase hover:bg-white hover:text-slate-900 transition-all duration-300 min-w-[180px]">
-                        Ver Tratamientos
+                        class="backdrop-blur-md bg-white/10 border border-white/40 text-white px-10 py-4 rounded-full text-sm flex items-center justify-center font-bold tracking-[0.1em] uppercase hover:bg-white hover:text-slate-900 transition-all duration-300 min-w-[200px]">
+                        Nuestros Servicios
                     </a>
                 </div>
             </div>
@@ -237,8 +238,8 @@
                 equilibrio, la simetría y la elegancia.
             </p>
             <div class="mt-8">
-                <img alt="Logo Dra. Mildred Moreno" class="h-16 w-auto object-contain" src="assets/images/logo.png"
-                    loading="lazy" decoding="async" />
+                <img alt="Logo Dra. Mildred Moreno" class="h-16 w-auto object-contain"
+                    src="assets/images/gallery/logo.webp" loading="lazy" decoding="async" />
             </div>
         </div>
     </section>
@@ -249,7 +250,7 @@
                 <div class="lg:col-span-5 relative order-2 lg:order-1">
                     <div class="relative aspect-[4/5] overflow-hidden rounded-lg shadow-2xl">
                         <div class="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-1000"
-                            style="background-image: url('assets/images/dra-moreno.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDN7TcMx7l53RJNSNo4qb-Rq3YLcJ6L2bVDu3elnbnu1MEdTKzdziaMiMbTq1mWveE6wa-HcQ-6mAHfLIKKO7dVQfKaF6IwnWt_G9x4U26_rcBB-mYNGTmqiwCBRKYie2fyq_NNuPf6BFfLfoWw1tBggtm_XUx2m3Ob6L8ieczfIO5633QBqsM-pbHZ4g4vE1k8FLr6TMuEXuBvakyTVfLPABgYPzbrh8mGubonMLyC-PJEjozw9j0Dkq9BQ73RHRgv9H_rFq4yLDTv');">
+                            style="background-image: url('assets/images/gallery/dra-moreno.webp');">
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
                     </div>
@@ -327,7 +328,7 @@
                     <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
                         <div class="editorial-image w-full h-full bg-cover bg-center transition-transform duration-700 ease-out"
                             data-alt="Service - Facial"
-                            style="background-image: url('assets/images/service-facial.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_ZegV65gDiisbTp-I5URGjvQkx6KuHpFY9zcKIHWdiZcvI6RSV6zbgGK-fURcWIWzPVCxd0VXPVdtzGKcZSuh8vpTRe7ffDibX5K8xF2g0SCz0_24oHGRGF7Jz_27f_qZqLzF1zoCRfL04gk8anZdwEzSEhwY1vgKuBrp0UC4sJ-8N_LlS1g0T1W43tI_KrfC6xPZvNiNMUJwl6jIWjoqhRt2c_wNWkVuV82W4ijwmyNNLjBXpq4sV70GZQThpL6MS2ukRZaioAxz');">
+                            style="background-image: url('assets/images/gallery/Armonizacion Facial.webp');">
                         </div>
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
@@ -347,7 +348,7 @@
                     <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
                         <div class="editorial-image w-full h-full bg-cover bg-center transition-transform duration-700 ease-out"
                             data-alt="Service - Body"
-                            style="background-image: url('assets/images/service-body.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoKC0x0uaQxXjiD-mJilj-gF4-NOgqRJbGfZNeLUW8LEfyfD4jnudOz86GOu4ZlOk1BPnocHgrbBPJmV7u2739Es_ZHwxTjWALH4DyQqA6Or6BKTiWsZjTegfw6indOhnLT9Oqo7YcJlAIoRe-p9OZuSgvpvSKw2m3KzeW8U2riIw4KsPA0BuO80irn02j31XcgHyeSSiWueuHLLLc3o2V6pKlgXOz6EyopuzqxX25Dx2vRMutS1leo6QOxTFXAdCBIhZqj1gno4Z_');">
+                            style="background-image: url('assets/images/gallery/Vaser_1.webp');">
                         </div>
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
@@ -364,7 +365,7 @@
                     <div class="relative aspect-[3/4] overflow-hidden rounded-lg mb-6">
                         <div class="editorial-image w-full h-full bg-cover bg-center transition-transform duration-700 ease-out"
                             data-alt="Service - Anti-Aging"
-                            style="background-image: url('assets/images/service-wellness.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCjgKAO3qS9HNNlP_KqHiSXh-YGGvke29bd6uPwbC9iXW0q8DrbBFddjx39tKnUDyZvRqpnnJAG7QsoWlvtuWhW9yemh4m_m6rizwuSt8XV6sIfbEpKtX_4GRYejtBq-5P6dfnsJ7yvYtHUm2N59li0rdoQdnHCB9ixGhJTzJaSyETYqXDi-8zucrAfUPD0LL98QliJcy3KcKqV5OjBw5RtxskWAaVhSO9Mroxz-iFd4W0VO-K_6r7SnR1TbLthbl_LDIq72Ba9an5');">
+                            style="background-image: url('assets/images/gallery/Lipopapada.webp');">
                         </div>
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
@@ -434,7 +435,7 @@
                 </div>
                 <div class="relative">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative group">
-                        <img src="assets/images/marcacion_abdomen.png" alt="Marcación Abdominal VASER HD"
+                        <img src="assets/images/gallery/marcacion_abdomen.webp" alt="Marcación Abdominal VASER HD"
                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             loading="lazy" decoding="async" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
@@ -477,17 +478,18 @@
                 <div class="order-2 lg:order-1">
                     <div
                         class="comparison-container w-full aspect-[4/5] rounded-xl relative shadow-2xl shadow-black/50 bg-slate-800">
-                        <!-- Placeholder para repositorio de imagenes: Usando before.png y after.png locales si existen, sino Google URLs -->
-                        <div class="absolute inset-0 bg-cover bg-center grayscale opacity-80"
+                        <!-- Portada de antes -->
+                        <div class="absolute inset-0 bg-cover bg-center"
                             data-alt="Portrait of a woman before aesthetic treatment, neutral expression"
-                            style="background-image: url('assets/images/before.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJbOrSWmQalUXtd3jJfDYRJKhMUEjWC5AYmL3bwHt8zR9eDGGPyGoeK_m0kdIN82QtROAGtXO1onv5Hnz_Xe8v374-i_Z02x7_k3ZoyX8XPNhxwUJFhdNxmtJL6S5o2F4X8PYw1h8u_5e0njY1sl0Rle-NXfL1ZUyUcxQiOGw1BjqZD-T21GzOGnR1BI2Ao5rrPYGByPx8x7fjSVKAN0xsSkl7JdBEAApX882THBBRnyZU_ocuzKAuDenZbgIOZA_3d03sNoYBPbZS');">
+                            style="background-image: url('assets/images/gallery/Antes_1.webp');">
                         </div>
                         <div
                             class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">
                             Antes</div>
+                        <!-- Portada de después -->
                         <div class="comparison-overlay absolute inset-0 bg-cover bg-center"
                             data-alt="Portrait of same woman after treatment with enhanced glow and defined features"
-                            style="background-image: url('assets/images/after.png'), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAR1Wv0fdaZ6uuaWM9vR9MvwN5CkLwz6dJG9QVAbyd4QZQGXZRxsDh0MJGl2Wrt27MPqNzstAGrVoFS-41yZqAFJkQE93fP3BlVMpAU34-HkVuGeXbGJ6NWJ32ES2_Xa6nH9UC2FwhbdvEJ2ar2vCOQWMpWVXHhQkhBX-q2LNwZYJoGL0AgmEDnL2qqrFu3nNR_sekm3Fegv43Tpv6o2VK1Tvfd8WTNfS7k2vEN0EBExjAbnJ1AyuJwO0nVZjRB9vExyEVkGeY2cZVK');">
+                            style="background-image: url('assets/images/gallery/Despues_1.webp');">
                             <div
                                 class="absolute top-4 right-4 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold uppercase tracking-wider text-white">
                                 Después</div>
@@ -553,28 +555,28 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                <article class="group cursor-pointer">
+                <article class="group cursor-pointer flex flex-col h-full">
                     <div class="overflow-hidden rounded-lg mb-6 relative">
-                        <img src="assets/images/blog-face.png" alt="La Ciencia detrás de la Armonización Facial"
-                            onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAPjcLv42xjY9aNsxptEsmJzZBTMDLS_mZQMTDkHT4N6IO0Fqo2z3lOGTihoveFr_CyxNnjMKuLDZfGt3I5HjXfhm-UQizUUdOw5XjAfavcKVAZ5jj3L9TM1dmcNcqjfiZ_n2lRHfrFgQ_b1q3FJWcjEqFmVaFKf9RUIJW4ajZuEKftttuheK9YhOAiPY-MjpniYMXfJtcfqLP8u9S58vRBcdw6tUDpKtobpodYFLs-vKGVwm8Wpt3Dl4hpWW3IonZ1UtZh5ooZwq5j'"
+                        <img src="assets/images/gallery/Ciencia detras de la armonizacion.webp"
+                            alt="La Ciencia detrás de la Armonización Facial"
                             class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                             loading="lazy" decoding="async" />
                         <div
-                            class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                            class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-2 text-sm font-bold uppercase tracking-wider text-primary">
                             Rostro
                         </div>
                     </div>
-                    <div class="flex flex-col gap-3">
-                        <span class="text-xs text-slate-400 uppercase tracking-wider">12 de Octubre, 2023</span>
+                    <div class="flex flex-col gap-3 flex-grow">
+                        <span class="text-base text-slate-400 uppercase tracking-wider">12 de Octubre, 2023</span>
                         <h3
-                            class="text-xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                            class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                             La Ciencia detrás de la Armonización Facial
                         </h3>
-                        <p class="text-slate-500 text-sm line-clamp-2">
+                        <p class="text-slate-500 text-sm md:text-base line-clamp-2 mb-6">
                             Descubre cómo usamos los principios de la proporción áurea para realzar tus rasgos naturales
                             sin cirugía.
                         </p>
-                        <a class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
+                        <a class="flex items-center justify-between w-full px-8 py-5 mt-auto text-sm font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
                             href="blog-facial.html">
                             Leer Más
                             <span
@@ -584,28 +586,27 @@
                         </a>
                     </div>
                 </article>
-                <article class="group cursor-pointer">
+                <article class="group cursor-pointer flex flex-col h-full">
                     <div class="overflow-hidden rounded-lg mb-6 relative">
-                        <img src="assets/images/blog-body.png" alt="Lipo Láser vs. Liposucción Tradicional"
-                            onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAuzQngT4Uoc4U5iyPsWBZ0I1H9mA6Z3lr5fXKVMNXqd0bVaplZaflfeBOzRg3dRL298xNZ1ySMMp3bFUF5Ari5FqIUqBpE7qTBwBTNPmPgX-5I1r6h1ZS5wE7Tb94qCWLOUItZQ4J8Eri8NjR5y9_zpHvV616iPDJrv6pMDj_9h1z4oa4AWkqAsfnHrjUI8zcILz25l632XP9GqlYffCHGSze8PjyuPuut89WI4lMrDam4r2nSv6dk8dD1kDmj6KEbGAwLJiYrGTAi'"
+                        <img src="assets/images/gallery/Vaser Hd.webp" alt="Lipo Láser vs. Liposucción Tradicional"
                             class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                             loading="lazy" decoding="async" />
                         <div
-                            class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                            class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-5 py-2 text-base font-bold uppercase tracking-wider text-primary">
                             Cuerpo
                         </div>
                     </div>
-                    <div class="flex flex-col gap-3">
-                        <span class="text-xs text-slate-400 uppercase tracking-wider">28 de Septiembre, 2023</span>
+                    <div class="flex flex-col gap-3 flex-grow">
+                        <span class="text-base text-slate-400 uppercase tracking-wider">28 de Septiembre, 2023</span>
                         <h3
-                            class="text-xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                            class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                             Vaser HD: La Revolución del Moldeado Corporal
                         </h3>
-                        <p class="text-slate-500 text-sm line-clamp-2">
+                        <p class="text-slate-500 text-sm md:text-base line-clamp-2 mb-6">
                             Descubre por qué el ultrasonido es el nuevo "estándar de oro" para lograr una definición
                             muscular atlética y natural.
                         </p>
-                        <a class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
+                        <a class="flex items-center justify-between w-full px-8 py-5 mt-auto text-sm font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
                             href="blog-vaser.html">
                             Leer Más
                             <span
@@ -615,28 +616,28 @@
                         </a>
                     </div>
                 </article>
-                <article class="group cursor-pointer">
+                <article class="group cursor-pointer flex flex-col h-full">
                     <div class="overflow-hidden rounded-lg mb-6 relative">
-                        <img src="assets/images/blog-skin.png" alt="Preparando tu Piel para el Invierno"
-                            onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAPEk-6IuAxouLVHegkWBGpdQlaBWtRKOI30fMJsAVLVOdADRvQtGbNzn5E1EMg7mDcUBR8yIlXZYhXBlv-uGsjDCKHX3y9NKXGCgAUBuCvx06HturTqacPTgW6LySrw11LBNZf8FmDgJ7-p17wfPDsJfyVtV3mPXZQO4s4bh3WbRxuMESh2GKV3TmA-MZbfFKHQwnzI9Jx1WX1L7JqblcZnADwnquYjdkkdPb4OpENDUSWEwMUUFGNzP4YwtxrBrQp8XoW0s0KMWEJ'"
+                        <img src="assets/images/gallery/Preparando tu piel.webp"
+                            alt="Preparando tu Piel para el Invierno"
                             class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                             loading="lazy" decoding="async" />
                         <div
-                            class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                            class="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-5 py-2 text-base font-bold uppercase tracking-wider text-primary">
                             Piel
                         </div>
                     </div>
-                    <div class="flex flex-col gap-3">
-                        <span class="text-xs text-slate-400 uppercase tracking-wider">15 de Septiembre, 2023</span>
+                    <div class="flex flex-col gap-3 flex-grow">
+                        <span class="text-base text-slate-400 uppercase tracking-wider">15 de Septiembre, 2023</span>
                         <h3
-                            class="text-xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                            class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                             Preparando tu Piel para el Invierno
                         </h3>
-                        <p class="text-slate-500 text-sm line-clamp-2">
+                        <p class="text-slate-500 text-sm md:text-base line-clamp-2 mb-6">
                             Tratamientos esenciales de hidratación y rutinas en casa para mantener tu brillo toda la
                             temporada.
                         </p>
-                        <a class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
+                        <a class="flex items-center justify-between w-full px-8 py-5 mt-auto text-sm font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group"
                             href="blog-bioestimulacion.html">
                             Leer Más
                             <span
@@ -648,25 +649,9 @@
                 </article>
             </div>
         </div>
-        <!-- CTA Final -->
-        <section class="py-20 px-6 cta-section">
-            <div
-                class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
-                <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
-                    ¿Lista para tu <span class="italic text-primary">Transformación?</span>
-                </h2>
-                <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                    Escríbenos hoy y agendamos una valoración profesional personalizada.
-                </p>
-                <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
-                    target="_blank"
-                    class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
-                    Hablar con una Especialista
-                </a>
-            </div>
-        </section>
 
-        <section class="py-0 relative" id="contact">
+
+        <section class="pt-32 relative" id="contact">
             <div class="w-full h-[500px] md:h-[650px] relative bg-slate-900 overflow-hidden">
                 <!-- Mapa centrado en Bogotá (aprox Parque de la 93) -->
                 <iframe allowfullscreen=""
@@ -741,7 +726,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div class="col-span-1 md:col-span-1">
                         <div class="mb-6">
-                            <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                            <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                                 class="h-16 w-auto object-contain">
                         </div>
                         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -27,7 +27,8 @@
                         "dark-grey": "#2d2d2d",
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"]
+                        "display": ["Cormorant Garamond", "serif"],
+                        "sans": ["Outfit", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -70,7 +71,7 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+    class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
     <!-- Navbar -->
     <nav
         class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
@@ -89,7 +90,7 @@
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy" decoding="async">
                     </a>
                 </div>
@@ -148,57 +149,102 @@
             <div class="flex items-center justify-center gap-4 text-slate-500 text-sm">
                 <span>Por Dra. Mildred Moreno</span>
                 <span>•</span>
-                <span>6 min de lectura</span>
+                <span>7 min de lectura</span>
             </div>
         </header>
 
         <!-- Featured Image -->
         <div class="mb-16 rounded-2xl overflow-hidden shadow-2xl reveal relative aspect-video">
-            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1000&auto=format&fit=crop"
-                alt="Bioestimuladores de Colágeno" class="w-full h-full object-cover">
+            <img src="assets/images/gallery/Preparando tu piel.webp" alt="Bioestimuladores de Colágeno"
+                class="w-full h-full object-cover">
         </div>
 
         <!-- Content -->
         <div
-            class="prose prose-lg dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal">
+            class="prose prose-xl dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal max-w-4xl">
             <p
-                class="text-xl md:text-2xl leading-relaxed text-slate-800 dark:text-slate-100 mb-10 border-l-4 border-primary pl-6">
+                class="text-2xl md:text-3xl leading-relaxed text-slate-800 dark:text-slate-100 mb-12 border-l-4 border-primary pl-8">
                 En la medicina estética moderna, el objetivo ya no es solo "rellenar" arrugas, sino mejorar la calidad
-                biológica de la piel. Aquí es donde entran los bioestimuladores de colágeno, los verdaderos arquitectos
-                de la juventud.
+                biológica de la piel. Aquí es donde los bioestimuladores se convierten en los arquitectos de la
+                juventud.
             </p>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">¿Qué es un Bioestimulador?</h3>
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">¿Qué es la
+                Bioestimulación?</h3>
             <p class="mb-6">
-                A diferencia del ácido hialurónico, que atrae agua para dar volumen inmediato, los bioestimuladores como
-                Radiesse (Hidroxiapatita de Calcio) y Sculptra (Ácido Poli-L-Láctico) funcionan activando tus
-                fibroblastos.
+                A diferencia del ácido hialurónico tradicional, que aporta volumen inmediato hidratando la zona, los
+                bioestimuladores funcionan enviando señales a tus propias células (**fibroblastos**) para que produzcan
+                colágeno y elastina nuevos.
             </p>
             <p class="mb-6">
-                Son sustancias biocompatibles que, al inyectarse, envían una señal a tu cuerpo para que produzca
-                <strong>nuevo colágeno y elastina</strong>. Es decir, tu cuerpo hace el trabajo de rejuvenecerse a sí
-                mismo.
+                El resultado no es un cambio artificial, sino una mejora progresiva y duradera en la firmeza, la textura
+                y el grosor de la piel. Es, literalmente, reprogramar tu piel para que se comporte como una piel más
+                joven.
             </p>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Radiesse vs. Sculptra: ¿Cuál
-                elegir?</h3>
+            <div class="my-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div
+                    class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-all hover:shadow-lg">
+                    <h4 class="text-2xl font-bold text-primary mb-4">Radiesse</h4>
+                    <p class="text-sm leading-relaxed text-slate-500">
+                        Compuesto por microesferas de hidroxiapatita de calcio. Ofrece un efecto de soporte inmediato
+                        ideal para definir la mandíbula o proyectar el mentón, mientras estimula la regeneración tisular
+                        a largo plazo.
+                    </p>
+                </div>
+                <div
+                    class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 transition-all hover:shadow-lg">
+                    <h4 class="text-2xl font-bold text-primary mb-4">Sculptra</h4>
+                    <p class="text-sm leading-relaxed text-slate-500">
+                        Basado en ácido poli-L-láctico. Es el estándar de oro para tratar la flacidez global del rostro
+                        y cuerpo. Sus resultados son muy graduales, naturales y pueden durar hasta 2 años al restaurar
+                        la estructura profunda.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">Zonas de Aplicación
+                Más Allá del Rostro</h3>
             <p class="mb-6">
-                Ambos son excelentes, pero tienen indicaciones ligeramente diferentes:
+                Una de las grandes ventajas de los bioestimuladores es su versatilidad corporal, permitiendo tratar
+                áreas donde la piel es más delgada:
             </p>
-            <ul class="list-disc pl-6 mb-10 space-y-4 marker:text-primary">
-                <li><strong>Radiesse:</strong> Ofrece un efecto "lifting" inmediato debido a su gel portador, además de
-                    la bioestimulación a largo plazo. Es ideal para definir contornos (como la mandíbula) y tratar manos
-                    envejecidas.</li>
-                <li><strong>Sculptra:</strong> Es un potente productor de colágeno que mejora la flacidez global y la
-                    calidad de la piel ("Glow"). Los resultados son graduales y muy naturales, ideales para rostros
-                    delgados que necesitan recuperar estructura sin verse "rellenos".</li>
+            <ul class="list-none pl-0 space-y-6 mb-12">
+                <li class="flex items-start gap-4">
+                    <span
+                        class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">check_circle</span>
+                    <div>
+                        <strong class="text-slate-900 dark:text-white">Cuello y Escote:</strong>
+                        <p class="text-sm mt-1">Tratamiento de las líneas "anulares" del cuello y la piel apergaminada
+                            del escote que suele delatar la edad.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <span
+                        class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">check_circle</span>
+                    <div>
+                        <strong class="text-slate-900 dark:text-white">Dorso de las Manos:</strong>
+                        <p class="text-sm mt-1">Recuperación del volumen perdido para ocultar venas y tendones
+                            pronunciados, devolviendo una apariencia juvenil.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <span
+                        class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">check_circle</span>
+                    <div>
+                        <strong class="text-slate-900 dark:text-white">Glúteos y Abdomen:</strong>
+                        <p class="text-sm mt-1">Mejora de la flacidez cutánea post-parto y la apariencia de la celulitis
+                            mediante la regeneración de tabiques de colágeno.</p>
+                    </div>
+                </li>
             </ul>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Resultados a Largo Plazo</h3>
-            <p class="mb-10">
-                Lo mejor de estos tratamientos es su duración. Mientras que los efectos máximos se ven a los 3 meses
-                (cuando tu cuerpo ha producido el nuevo colágeno), los resultados pueden mantenerse hasta por 2 años. Es
-                una verdadera inversión en tu "banco de colágeno" personal.
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">Resultados y
+                Expectativas</h3>
+            <p class="mb-12">
+                Como es un proceso biológico, los resultados definitivos se aprecian a partir del segundo o tercer mes
+                después de la aplicación. Es la inversión más inteligente para quienes buscan un rejuvenecimiento
+                elegante, discreto y estructural que no dependa solo de rellenos temporales.
             </p>
         </div>
 
@@ -216,23 +262,7 @@
 
     </article>
 
-    <!-- CTA Final -->
-    <section class="py-20 px-6">
-        <div
-            class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
-            <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
-                ¿Lista para tu <span class="italic text-primary">Transformación?</span>
-            </h2>
-            <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                Escríbenos hoy y agendamos una valoración profesional personalizada.
-            </p>
-            <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
-                target="_blank"
-                class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
-                Hablar con una Especialista
-            </a>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer
@@ -242,7 +272,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-6">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-16 w-auto object-contain">
                     </div>
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
@@ -263,7 +293,7 @@
                             target="_blank">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
                                 </path>
                             </svg>
                         </a>

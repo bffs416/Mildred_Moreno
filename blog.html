@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -27,7 +27,8 @@
                         "dark-grey": "#2d2d2d",
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"]
+                        "display": ["Cormorant Garamond", "serif"],
+                        "sans": ["Outfit", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -74,7 +75,7 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+    class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
     <nav
         class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-[1440px] mx-auto px-6 py-4">
@@ -92,7 +93,7 @@
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy" decoding="async">
                     </a>
                 </div>
@@ -142,7 +143,7 @@
 
     <header class="relative w-full h-[50vh] min-h-[400px] overflow-hidden group">
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style="background-image: url('https://images.unsplash.com/photo-1499540633125-484965b60031?q=80&w=2071&auto=format&fit=crop');">
+            style="background-image: url('assets/images/gallery/hero.webp');">
         </div>
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative h-full flex flex-col justify-center items-center text-center max-w-[1440px] mx-auto px-6">
@@ -164,31 +165,32 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
             <!-- Blog Post 1: VASER -->
-            <article class="blog-card group cursor-pointer reveal" onclick="window.location.href='blog-vaser.html'">
+            <article class="blog-card group cursor-pointer reveal flex flex-col h-full"
+                onclick="window.location.href='blog-vaser.html'">
                 <div class="overflow-hidden rounded-xl mb-6 relative aspect-[16/9] shadow-lg">
-                    <img src="assets/images/service-body.png"
-                        onerror="this.src='https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1000&auto=format&fit=crop'"
-                        alt="VASER HD" class="blog-image w-full h-full object-cover transition-transform duration-700"
+                    <img src="assets/images/gallery/Vaser Hd.webp" alt="VASER HD"
+                        class="blog-image w-full h-full object-cover transition-transform duration-700"
                         loading="lazy" />
                     <div
                         class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary rounded">
                         Corporal
                     </div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs text-slate-400 uppercase tracking-wider">Tecnología Avanzada</span>
+                <div class="flex flex-col gap-3 flex-grow">
+                    <span class="text-base md:text-lg text-slate-400 uppercase tracking-wider">Tecnología
+                        Avanzada</span>
                     <h2
-                        class="text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                        class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                         VASER HD: La Revolución del Moldeado Corporal
                     </h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                    <p class="text-slate-500 text-sm md:text-base leading-relaxed mb-6">
                         Descubre cómo la tecnología de ultrasonido VASER ha redefinido los estándares de la
                         lipoescultura. A diferencia de los métodos tradicionales, VASER actúa selectivamente sobre la
                         grasa, preservando tejidos vitales y permitiendo una definición atlética con menor tiempo de
                         recuperación.
                     </p>
                     <a href="blog-vaser.html" target="_blank"
-                        class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
+                        class="flex items-center justify-between w-full px-6 py-4 mt-auto text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
                         Leer Más
                         <span
                             class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -199,12 +201,10 @@
             </article>
 
             <!-- Blog Post 2: Armonización Facial -->
-            <article class="blog-card group cursor-pointer reveal" style="transition-delay: 100ms;"
+            <article class="blog-card group cursor-pointer reveal flex flex-col h-full" style="transition-delay: 100ms;"
                 onclick="window.location.href='blog-facial.html'">
                 <div class="overflow-hidden rounded-xl mb-6 relative aspect-[16/9] shadow-lg">
-                    <img src="assets/images/service-facial.png"
-                        onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop'"
-                        alt="Armonización Facial"
+                    <img src="assets/images/gallery/Ciencia detras de la armonizacion.webp" alt="Armonización Facial"
                         class="blog-image w-full h-full object-cover transition-transform duration-700"
                         loading="lazy" />
                     <div
@@ -212,19 +212,19 @@
                         Facial
                     </div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs text-slate-400 uppercase tracking-wider">Arte y Ciencia</span>
+                <div class="flex flex-col gap-3 flex-grow">
+                    <span class="text-base text-slate-400 uppercase tracking-wider">Arte y Ciencia</span>
                     <h2
-                        class="text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                        class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                         La Ciencia detrás de la Armonización Facial
                     </h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                    <p class="text-slate-500 text-sm md:text-base leading-relaxed mb-6">
                         Más allá de rellenar, armonizar significa equilibrar. Analizamos las proporciones áureas de tu
                         rostro para aplicar sutileza estratégica con ácido hialurónico y toxina botulínica, logrando un
                         rejuvenecimiento que se siente auténtico y respeta tu anatomía única.
                     </p>
                     <a href="blog-facial.html" target="_blank"
-                        class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
+                        class="flex items-center justify-between w-full px-6 py-4 mt-auto text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
                         Leer Más
                         <span
                             class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -235,11 +235,10 @@
             </article>
 
             <!-- Blog Post 3: Ojeras -->
-            <article class="blog-card group cursor-pointer reveal" style="transition-delay: 200ms;"
+            <article class="blog-card group cursor-pointer reveal flex flex-col h-full" style="transition-delay: 200ms;"
                 onclick="window.location.href='blog-ojeras.html'">
                 <div class="overflow-hidden rounded-xl mb-6 relative aspect-[16/9] shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1519699047748-40ba5266f2bb?q=80&w=1000&auto=format&fit=crop"
-                        alt="Tratamiento de Ojeras"
+                    <img src="assets/images/gallery/blog-ojeras.jpg" alt="Tratamiento de Ojeras"
                         class="blog-image w-full h-full object-cover transition-transform duration-700"
                         loading="lazy" />
                     <div
@@ -247,19 +246,19 @@
                         Mirada
                     </div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs text-slate-400 uppercase tracking-wider">Rejuvenecimiento</span>
+                <div class="flex flex-col gap-3 flex-grow">
+                    <span class="text-base text-slate-400 uppercase tracking-wider">Rejuvenecimiento</span>
                     <h2
-                        class="text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                        class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                         Adiós a la Mirada Cansada: Tratamiento de Ojeras
                     </h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                    <p class="text-slate-500 text-sm md:text-base leading-relaxed mb-6">
                         Las ojeras no siempre son por falta de sueño; a veces es pérdida de volumen o hiperpigmentación.
                         Exploramos cómo el ácido hialurónico específico para esta zona delicada puede devolver la luz a
                         tu mirada de manera instantánea y segura.
                     </p>
                     <a href="blog-ojeras.html" target="_blank"
-                        class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
+                        class="flex items-center justify-between w-full px-6 py-4 mt-auto text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
                         Leer Más
                         <span
                             class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -270,11 +269,10 @@
             </article>
 
             <!-- Blog Post 4: Bioestimulación -->
-            <article class="blog-card group cursor-pointer reveal" style="transition-delay: 300ms;"
+            <article class="blog-card group cursor-pointer reveal flex flex-col h-full" style="transition-delay: 300ms;"
                 onclick="window.location.href='blog-bioestimulacion.html'">
                 <div class="overflow-hidden rounded-xl mb-6 relative aspect-[16/9] shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1000&auto=format&fit=crop"
-                        alt="Bioestimuladores de Colágeno"
+                    <img src="assets/images/gallery/Preparando tu piel.webp" alt="Bioestimuladores de Colágeno"
                         class="blog-image w-full h-full object-cover transition-transform duration-700"
                         loading="lazy" />
                     <div
@@ -282,19 +280,19 @@
                         Piel
                     </div>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-xs text-slate-400 uppercase tracking-wider">Anti-Aging</span>
+                <div class="flex flex-col gap-3 flex-grow">
+                    <span class="text-base text-slate-400 uppercase tracking-wider">Anti-Aging</span>
                     <h2
-                        class="text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
+                        class="text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-tight group-hover:text-primary transition-colors">
                         El Poder de la Bioestimulación: Radiesse & Sculptra
                     </h2>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                    <p class="text-slate-500 text-sm md:text-base leading-relaxed mb-6">
                         ¿Y si tu piel pudiera volver a ser joven por sí misma? Los bioestimuladores no solo rellenan;
                         activan tus propias células para producir colágeno nuevo. Conoce la diferencia entre un efecto
                         inmediato y una inversión a largo plazo en la calidad de tu piel.
                     </p>
                     <a href="blog-bioestimulacion.html" target="_blank"
-                        class="flex items-center justify-between w-full px-6 py-4 mt-4 text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
+                        class="flex items-center justify-between w-full px-6 py-4 mt-auto text-xs font-bold uppercase tracking-widest text-white bg-slate-900 rounded-xl shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:shadow-primary/30 hover:bg-primary transition-all duration-300 hover:-translate-y-1 group">
                         Leer Más
                         <span
                             class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-colors">
@@ -333,7 +331,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-6">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-16 w-auto object-contain">
                     </div>
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">

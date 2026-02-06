@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@100..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -27,7 +27,8 @@
                         "dark-grey": "#2d2d2d",
                     },
                     fontFamily: {
-                        "display": ["Newsreader", "serif"]
+                        "display": ["Cormorant Garamond", "serif"],
+                        "sans": ["Outfit", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                 },
@@ -70,7 +71,7 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+    class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
     <!-- Navbar -->
     <nav
         class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
@@ -89,7 +90,7 @@
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
                     <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy" decoding="async">
                     </a>
                 </div>
@@ -141,9 +142,10 @@
         <!-- Header -->
         <header class="text-center mb-16 reveal">
             <span
-                class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full mb-6">Facial</span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 dark:text-white leading-tight mb-6">
-                La Ciencia detrás de la <br><span class="italic text-primary">Armonización Facial</span>
+                class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em] rounded-full mb-8">Facial</span>
+            <h1
+                class="text-5xl md:text-6xl lg:text-8xl font-display text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tight">
+                La Ciencia detrás de la <br><span class="italic text-primary font-light">Armonización Facial</span>
             </h1>
             <div class="flex items-center justify-center gap-4 text-slate-500 text-sm">
                 <span>Por Dra. Mildred Moreno</span>
@@ -154,52 +156,164 @@
 
         <!-- Featured Image -->
         <div class="mb-16 rounded-2xl overflow-hidden shadow-2xl reveal relative aspect-video">
-            <img src="assets/images/service-facial.png"
-                onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000'"
-                alt="Armonización Facial" class="w-full h-full object-cover">
+            <img src="assets/images/gallery/Ciencia detras de la armonizacion.webp" alt="Armonización Facial"
+                class="w-full h-full object-cover">
         </div>
 
         <!-- Content -->
         <div
-            class="prose prose-lg dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal">
+            class="prose prose-xl dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal max-w-4xl">
             <p
-                class="text-xl md:text-2xl leading-relaxed text-slate-800 dark:text-slate-100 mb-10 border-l-4 border-primary pl-6">
-                "No necesito cambiar mi cara, solo quiero verme como la mejor versión de mí misma". Esta es la frase que
-                más escucho en consulta, y es exactamente el objetivo de una buena armonización facial.
+                class="text-2xl md:text-3xl leading-relaxed text-slate-800 dark:text-slate-100 mb-12 border-l-4 border-primary pl-8">
+                "No necesito cambiar mi cara, solo quiero verme como la mejor versión de mí misma". Esta es la filosofía
+                que guía cada armonización facial: resaltar la belleza natural sin perder la esencia.
             </p>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Proporción Áurea y Belleza</h3>
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">El Concepto de
+                Armonización Facial</h3>
             <p class="mb-6">
-                Nuestro cerebro está programado para percibir la belleza a través de la simetría y el equilibrio. La
-                proporción áurea (Phi) es un concepto matemático que aplicamos en medicina estética para determinar
-                dónde un milímetro de volumen puede hacer toda la diferencia.
+                La armonización facial no es un procedimiento único, sino un conjunto de técnicas médicas personalizadas
+                diseñadas para equilibrar las facciones. A diferencia de los rellenos tradicionales, aquí no buscamos
+                "inflar", sino <strong>reposicionar</strong>.
             </p>
             <p class="mb-6">
-                No se trata de inflar rostros, sino de reponer estructuras que se pierden con la edad (como el soporte
-                óseo y los compartimentos de grasa) en puntos estratégicos: pómulos, mentón, y ángulo mandibular.
+                Con el paso del tiempo, el rostro pierde soporte óseo y los compartimentos grasos se desplazan. La
+                armonización utiliza ácido hialurónico de diferentes densidades para devolver ese soporte en puntos
+                estratégicos como los pómulos, el mentón y el ángulo mandibular.
             </p>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Herramientas Principales</h3>
-            <ul class="list-disc pl-6 mb-10 space-y-4 marker:text-primary">
-                <li><strong>Ácido Hialurónico:</strong> Para proyectar, rellenar e hidratar profundamente. Usamos
-                    diferentes densidades según la zona.</li>
-                <li><strong>Toxina Botulínica:</strong> Para relajar músculos que causan arrugas de expresión y suavizar
-                    la mirada.</li>
-                <li><strong>Bioestimuladores:</strong> Para mejorar la calidad de la piel a largo plazo, tensando y
-                    redensificando.</li>
-            </ul>
+            <div
+                class="my-16 flex flex-col md:flex-row gap-12 items-center bg-slate-50 dark:bg-slate-800/50 p-10 rounded-3xl border border-slate-200 dark:border-slate-700">
+                <div class="w-full md:w-1/2">
+                    <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Pilares del Tratamiento</h4>
+                    <ul class="space-y-4 list-none pl-0">
+                        <li class="flex items-center gap-3 italic">
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+                            Proporción Áurea (Phi)
+                        </li>
+                        <li class="flex items-center gap-3 italic">
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+                            Simetría Bilateral
+                        </li>
+                        <li class="flex items-center gap-3 italic">
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+                            Naturalidad Dinámica
+                        </li>
+                        <li class="flex items-center gap-3 italic">
+                            <span class="w-2 h-2 bg-primary rounded-full"></span>
+                            Seguridad Médica
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <p class="text-base text-slate-500 font-light italic">
+                        "Un buen tratamiento es aquel que todos notan pero nadie sabe qué se hizo. La clave está en la
+                        sutileza de los micro-detalles."
+                    </p>
+                </div>
+            </div>
 
-            <h3 class="text-2xl font-display text-slate-900 dark:text-white mt-12 mb-6">Miedos Comunes: "Cara de
-                Almohada"</h3>
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">Áreas de Mayor
+                Impacto</h3>
             <p class="mb-6">
-                Muchas personas temen quedar con un rostro artificial o hinchado. Esto sucede cuando se sobre-trata al
-                paciente o no se respeta su anatomía original.
+                Aunque cada plan es único, existen zonas que transforman el perfil de manera inmediata:
             </p>
-            <p class="mb-10">
-                En nuestra clínica, seguimos la filosofía de "menos es más". Preferimos realizar cambios sutiles en
-                varias sesiones para que el resultado sea imperceptible para los demás, pero impactante para tu
-                autoestima.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <div
+                    class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+                    <h5 class="text-xl font-bold text-primary mb-3">Definición Mandibular</h5>
+                    <p class="text-sm text-slate-500">Marca la separación entre el rostro y el cuello, proporcionando un
+                        aspecto más firme y juvenil.</p>
+                </div>
+                <div
+                    class="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm">
+                    <h5 class="text-xl font-bold text-primary mb-3">Proyección de Mentón</h5>
+                    <p class="text-sm text-slate-500">Equilibra el perfil, especialmente importante en pacientes que
+                        sienten que su nariz resalta demasiado.</p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8">¿Cuánto duran los
+                resultados?</h3>
+            <p class="mb-12">
+                Dependiendo del producto utilizado (generalmente ácido hialurónico de alta gama), la duración oscila
+                entre los 12 y 18 meses. Es un tratamiento reversible y gradualmente absorbible, lo que permite ir
+                ajustando el rostro según el proceso natural de envejecimiento.
             </p>
+        </div>
+        class="treatment-card group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-800/50 border
+        border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all
+        duration-500 hover:-translate-y-2">
+        <div
+            class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+        </div>
+        <div class="relative z-10">
+            <div
+                class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                <span class="material-symbols-outlined text-2xl">architecture</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Perfilamiento
+                Mandibular</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                Define la línea que separa el rostro del cuello, proyectando el ángulo mandibular para
+                eliminar la apariencia de papada.
+            </p>
+        </div>
+        </div>
+
+        <!-- Proyección de Mentón -->
+        <div
+            class="treatment-card group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-2">
+            <div
+                class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <div class="relative z-10">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                    <span class="material-symbols-outlined text-2xl">center_focus_strong</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Proyección de
+                    Mentón</h4>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    Un toque estratégico fundamental para equilibrar el perfil, aportando fuerza y armonía a
+                    pacientes con mentones retraídos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Surco Nasogeniano -->
+        <div
+            class="treatment-card group relative overflow-hidden p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-2">
+            <div
+                class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <div class="relative z-10">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                    <span class="material-symbols-outlined text-2xl">face_5</span>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Surco
+                    Nasogeniano</h4>
+                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    Logramos suavizar las líneas que van de la nariz a la boca reponiendo el volumen perdido en
+                    la mejilla de forma natural.
+                </p>
+            </div>
+        </div>
+        </div>
+
+        <h3 class="text-3xl md:text-4xl font-display text-slate-900 dark:text-white mt-16 mb-8 tracking-tight">El
+            Proceso: Menos es Más</h3>
+        <p class="mb-8 text-lg">
+            Muchas personas temen quedar con un rostro artificial. En nuestra clínica, seguimos la filosofía de la
+            naturalidad. La armonización no se hace en un día; es un camino donde vamos construyendo resultados
+            progresivos.
+        </p>
+        <p class="mb-12 text-lg">
+            Preferimos realizar cambios sutiles en varias sesiones para que el resultado sea imperceptible para los
+            demás (que solo te verán "más descansada" o "mejor"), pero impactante para tu propia percepción frente
+            al espejo.
+        </p>
         </div>
 
         <!-- Call to Action -->
@@ -217,23 +331,7 @@
 
     </article>
 
-    <!-- CTA Final -->
-    <section class="py-20 px-6">
-        <div
-            class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
-            <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
-                ¿Lista para tu <span class="italic text-primary">Transformación?</span>
-            </h2>
-            <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                Escríbenos hoy y agendamos una valoración profesional personalizada.
-            </p>
-            <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
-                target="_blank"
-                class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
-                Hablar con una Especialista
-            </a>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer
@@ -243,7 +341,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-6">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-16 w-auto object-contain">
                     </div>
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">

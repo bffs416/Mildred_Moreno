@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
@@ -26,19 +26,17 @@
     </script>
     <style>
         :root {
-            --bg-color: #f5f9ff;
-            --accent-blue: #A7C7E7;
-            /* Pastel blue accent from main site */
-            --accent-soft: #f0f7ff;
-            /* Softer blue BG */
-            --text-main: #111a21;
-            /* Charcoal from main site */
-            --text-muted: #5e6b76;
-            --border-color: rgba(167, 199, 231, 0.25);
-            /* Blue border */
-            --card-bg: #ffffff;
+            --bg-color: #f4f9ff;
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --accent-blue: #a3c9f1;
+            --deep-blue: #2d4a63;
+            --text-main: #4a5d6e;
+            --text-muted: #7a8c99;
+            --fluid-gradient: linear-gradient(135deg, #e0f0ff 0%, #ffffff 100%);
             --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-sans: 'Outfit', sans-serif;
+            --font-inter: 'Inter', sans-serif;
         }
 
         * {
@@ -59,18 +57,66 @@
             overflow-x: hidden;
         }
 
+        /* Organic Background Elements */
+        .blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: move 25s infinite alternate;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: #d1e9ff;
+            top: -200px;
+            right: -200px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: #e8f4ff;
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: #fdf2f8;
+            top: 40%;
+            right: 15%;
+            animation-delay: -10s;
+            opacity: 0.3;
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(60px, 120px) scale(1.15);
+            }
+        }
+
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            background: rgba(245, 249, 255, 0.9);
+            padding: 1.2rem 5%;
+            background: rgba(244, 249, 255, 0.85);
             position: fixed;
             width: 100%;
             z-index: 100;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(163, 201, 241, 0.2);
         }
 
         .nav-links {
@@ -81,12 +127,12 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--deep-blue);
             font-size: 0.75rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            transition: color 0.3s ease;
-            font-weight: 400;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-links a:hover,
@@ -101,182 +147,272 @@
         }
 
         .btn-cta {
-            background: var(--accent-blue);
+            background: var(--deep-blue);
             color: #fff;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 2.2rem;
             border-radius: 50px;
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 20px rgba(45, 74, 99, 0.15);
         }
 
         .btn-cta:hover {
-            transform: translateY(-2px);
-            background: #b08d4b;
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+            transform: translateY(-3px);
+            background: var(--accent-blue);
+            box-shadow: 0 15px 30px rgba(163, 201, 241, 0.4);
         }
 
-        /* Layout Main */
-        .container {
-            max-width: 1100px;
+        /* Main Container/Wrapper */
+        .services-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 140px 20px 80px;
-        }
-
-        .section-header {
+            padding: 160px 20px 100px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 80px;
-            position: relative;
+            flex-direction: column;
+            gap: 120px;
         }
 
-        .section-header::before,
-        .section-header::after {
-            content: "";
-            height: 1px;
-            flex-grow: 1;
-            background: linear-gradient(to right, transparent, var(--border-color), transparent);
-        }
-
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.8rem;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0 3rem;
-            color: var(--text-main);
-        }
-
-        /* Grid Services */
-        .grid-row {
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 60px;
+            padding: 80px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 80px;
-            margin-bottom: 120px;
+            box-shadow: 0 30px 60px -12px rgba(163, 201, 241, 0.2);
             align-items: center;
-        }
-
-        .grid-row.reverse {
-            direction: rtl;
-        }
-
-        .grid-row.reverse .text-content {
-            direction: ltr;
-        }
-
-        .image-wrapper {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            aspect-ratio: 4/5;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: contrast(105%) brightness(102%);
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        .service-card.reverse {
+            grid-template-columns: 0.9fr 1.1fr;
         }
 
-        .image-wrapper:hover img {
-            transform: scale(1.08);
+        .service-card.reverse .content {
+            order: 2;
         }
 
-        .text-content {
-            padding: 20px;
+        .service-card.reverse .visual-container {
+            order: 1;
         }
 
-        .service-tag {
-            font-size: 0.7rem;
-            letter-spacing: 0.35em;
+        /* Content Styles */
+        .category {
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 5px;
             color: var(--accent-blue);
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
             display: block;
-            font-weight: 500;
         }
 
-        .service-name {
-            font-family: var(--font-serif);
-            font-size: 2.4rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+        .title {
+            font-family: var(--font-display);
+            font-size: 52px;
+            line-height: 1.1;
+            color: var(--deep-blue);
+            margin-bottom: 28px;
             font-weight: 400;
-            color: #1a2a3a;
         }
 
-        .service-description {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
+        .description {
+            font-size: 17px;
             line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        .benefit-list {
+        .service-list {
             list-style: none;
         }
 
-        .benefit-item {
+        .service-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
+            margin-bottom: 18px;
+            font-size: 15px;
             color: var(--text-main);
-            letter-spacing: 0.02em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
         }
 
-        .benefit-item svg {
-            width: 18px;
-            height: 18px;
-            color: var(--accent-blue);
-            background: var(--accent-soft);
-            padding: 4px;
+        .service-item:hover {
+            transform: translateX(12px);
+            color: var(--deep-blue);
+        }
+
+        .icon-check {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-blue);
             border-radius: 50%;
+            margin-right: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(163, 201, 241, 0.3);
         }
 
-        /* Decoration */
-        .glow {
-            position: absolute;
-            width: 600px;
+        .icon-check svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        /* Visual Column */
+        .visual-container {
+            position: relative;
+        }
+
+        .image-wrapper {
+            width: 100%;
             height: 600px;
-            background: radial-gradient(circle, rgba(123, 174, 210, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-            z-index: -1;
+            border-radius: 180px 50px 180px 50px;
+            overflow: hidden;
+            box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .service-card.reverse .image-wrapper {
+            border-radius: 50px 180px 50px 180px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .image-wrapper:hover .main-image {
+            transform: scale(1.08);
+        }
+
+        .overlay-effect {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
             pointer-events: none;
+            z-index: 1;
         }
 
-        /* Mobile Menu styles integrated */
-        #mobile-menu-btn {
-            display: none;
+        .floating-badge {
+            position: absolute;
+            bottom: 40px;
+            left: -30px;
+            background: white;
+            padding: 22px 35px;
+            border-radius: 28px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            animation: float 5s infinite ease-in-out;
+            z-index: 2;
         }
 
-        .mobile-menu {
-            display: none;
+        .service-card.reverse .floating-badge {
+            left: auto;
+            right: -30px;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .badge-icon {
+            width: 44px;
+            height: 44px;
+            background: #f0f7ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-blue);
+        }
+
+        .badge-text span {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-text strong {
+            font-size: 17px;
+            color: var(--deep-blue);
+            font-family: var(--font-display);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .service-card {
+                grid-template-columns: 1fr;
+                padding: 60px 40px;
+                gap: 50px;
+                border-radius: 40px;
+            }
+
+            .service-card.reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card.reverse .content {
+                order: 1;
+            }
+
+            .service-card.reverse .visual-container {
+                order: 2;
+            }
+
+            .title {
+                font-size: 42px;
+            }
+
+            .image-wrapper {
+                height: 450px;
+                border-radius: 100px 40px 100px 40px;
+            }
         }
 
         @media (max-width: 768px) {
-
-            .grid-row,
-            .grid-row.reverse {
-                grid-template-columns: 1fr;
-                direction: ltr;
-                gap: 40px;
+            .services-wrapper {
+                padding-top: 120px;
+                gap: 60px;
             }
 
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 100px 20px 40px;
+            .floating-badge {
+                left: 50% !important;
+                right: auto !important;
+                transform: translateX(-50%);
+                bottom: -25px;
+                padding: 15px 25px;
             }
 
             .nav-links {
@@ -287,11 +423,8 @@
                 display: block;
                 background: none;
                 border: none;
-                cursor: pointer;
-                color: var(--text-main);
             }
 
-            /* Mobile Menu Integration */
             .mobile-menu {
                 display: flex;
                 flex-direction: column;
@@ -316,9 +449,9 @@
 
             .mobile-menu a {
                 text-decoration: none;
-                color: var(--text-main);
+                color: var(--deep-blue);
                 font-size: 1.2rem;
-                font-family: var(--font-serif);
+                font-family: var(--font-display);
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
             }
@@ -330,14 +463,14 @@
                 background: none;
                 border: none;
                 cursor: pointer;
-                color: var(--text-main);
+                color: var(--deep-blue);
             }
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .reveal.active {
@@ -369,7 +502,8 @@
             <span class="material-symbols-outlined" style="font-size: 2rem;">menu</span>
         </button>
         <a href="index.html">
-            <img src="assets/images/logo.png" alt="Dra. Moreno" class="logo-img" loading="lazy" decoding="async">
+            <img src="assets/images/gallery/logo.webp" alt="Dra. Moreno" class="logo-img" loading="lazy"
+                decoding="async">
         </a>
         <ul class="nav-links">
             <li><a href="filosofia.html">FILOSOFÍA</a></li>
@@ -396,189 +530,258 @@
             class="btn-cta">Agendar Cita</a>
     </div>
 
-    <div class="glow" style="top: -10%; right: -10%;"></div>
-    <div class="glow" style="bottom: 20%; left: -15%;"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-    <main class="container">
-
+    <main class="services-wrapper">
         <!-- Section: Corporal -->
-        <header class="section-header" id="corporal">
-            <h2 class="section-title">Corporal</h2>
-        </header>
-
-        <div class="grid-row">
-            <div class="image-wrapper">
-                <img src="assets/images/service-body.png"
-                    onerror="this.src='https://images.unsplash.com/photo-1515377666659-81829804167e?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Lipoescultura VASER" loading="lazy" decoding="async">
-            </div>
-            <div class="text-content">
-                <span class="service-tag">Alta Definición</span>
-                <h3 class="service-name">Lipoescultura VASER HD</h3>
-                <p class="service-description">
+        <article class="service-card reveal">
+            <section class="content">
+                <span class="category">Corporal - Alta Definición</span>
+                <h2 class="title">Lipoescultura <br>VASER HD</h2>
+                <p class="description">
                     Tecnología de vanguardia diseñada para esculpir la silueta con precisión milimétrica. La tecnología
                     ultrasónica preserva los tejidos mientras define la musculatura atlética de forma natural.
                 </p>
-                <ul class="benefit-list">
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Definición muscular de alto impacto
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Recuperación optimizada y menor inflamación
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Máxima retracción de la piel
                     </li>
                 </ul>
-            </div>
-        </div>
+            </section>
 
-        <div class="grid-row reverse">
-            <div class="image-wrapper">
-                <img src="assets/images/service-wellness.png"
-                    onerror="this.src='https://images.unsplash.com/photo-1556229167-7203679bc213?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Lipotransferencia Glútea" loading="lazy" decoding="async">
-            </div>
-            <div class="text-content">
-                <span class="service-tag">Volumen Natural</span>
-                <h3 class="service-name">Lipotransferencia Glútea</h3>
-                <p class="service-description">
+            <section class="visual-container">
+                <div class="image-wrapper">
+                    <div class="overlay-effect"></div>
+                    <img src="assets/images/gallery/Vaser.webp" alt="Lipoescultura VASER" class="main-image">
+                </div>
+
+                <div class="floating-badge">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <div class="badge-text">
+                        <span>Tecnología</span>
+                        <strong>Avanzada</strong>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Section: Lipotransferencia -->
+        <article class="service-card reverse reveal">
+            <section class="content">
+                <span class="category">Corporal - Volumen Natural</span>
+                <h2 class="title">Lipotransferencia <br>Glútea</h2>
+                <p class="description">
                     Utilizamos tu propia grasa procesada para armonizar y proyectar el contorno corporal, logrando
                     resultados suaves, seguros y permanentes sin necesidad de implantes sintéticos.
                 </p>
-                <ul class="benefit-list">
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Resultado orgánico y armónico
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Sin riesgo de rechazo (material propio)
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Remodelación de zona donante y receptora
                     </li>
                 </ul>
-            </div>
-        </div>
+            </section>
 
-        <!-- Section: Facial -->
-        <header class="section-header" id="facial">
-            <h2 class="section-title">Facial</h2>
-        </header>
+            <section class="visual-container">
+                <div class="image-wrapper">
+                    <div class="overlay-effect"></div>
+                    <img src="assets/images/gallery/transferencia 1.webp" alt="Lipotransferencia Glútea"
+                        class="main-image">
+                </div>
 
-        <div class="grid-row">
-            <div class="image-wrapper">
-                <img src="assets/images/service-facial.png"
-                    onerror="this.src='https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Lipopapada" loading="lazy" decoding="async">
-            </div>
-            <div class="text-content">
-                <span class="service-tag">Armonización</span>
-                <h3 class="service-name">Lipopapada con Perfilación</h3>
-                <p class="service-description">
+                <div class="floating-badge">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <div class="badge-text">
+                        <span>Resultados</span>
+                        <strong>100% Reales</strong>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Section: Lipopapada -->
+        <article class="service-card reveal" id="facial">
+            <section class="content">
+                <span class="category">Facial - Armonización</span>
+                <h2 class="title">Lipopapada con <br>Perfilación</h2>
+                <p class="description">
                     Eliminación precisa de la grasa submentoniana combinada con la definición del borde mandibular para
                     un perfil más estilizado, joven y sofisticado.
                 </p>
-                <ul class="benefit-list">
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Mentón proyectado y mandíbula definida
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Efecto visual de rejuvenecimiento inmediato
                     </li>
                 </ul>
-            </div>
-        </div>
+            </section>
 
-        <!-- Additional Facial Treatments Section -->
-        <div class="grid-row reverse">
-            <div class="image-wrapper">
-                <img src="assets/images/blog-face.png"
-                    onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1000'"
-                    alt="Resultados Facial" loading="lazy" decoding="async">
-            </div>
-            <div class="text-content">
-                <span class="service-tag">No Quirúrgico</span>
-                <h3 class="service-name">Armonización Facial & Bioestimulación</h3>
-                <p class="service-description">
-                    Tratamientos mínimamente invasivos para restaurar volúmenes, suavizar líneas y mejorar la calidad de
-                    la piel desde adentro.
-                </p>
-                <ul class="benefit-list">
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
+            <section class="visual-container">
+                <div class="image-wrapper">
+                    <div class="overlay-effect"></div>
+                    <img src="assets/images/gallery/transferencia 2.webp" alt="Lipopapada" class="main-image">
+                </div>
+
+                <div class="floating-badge">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
+                    </div>
+                    <div class="badge-text">
+                        <span>Perfil</span>
+                        <strong>Definido</strong>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Section: Armonización Facial -->
+        <article class="service-card reverse reveal">
+            <section class="content">
+                <span class="category">Tratamiento No Quirúrgico</span>
+                <h2 class="title">Armonización Facial <br>& Bioestimulación</h2>
+                <p class="description">
+                    Descubre el equilibrio perfecto entre ciencia y estética. Tratamientos mínimamente invasivos
+                    diseñados para restaurar volúmenes naturales, suavizar líneas de expresión y potenciar la
+                    regeneración celular desde el interior.
+                </p>
+
+                <ul class="service-list">
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
                         Toxina Botulínica & Hilos Tensores
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        Ácido Hialurónico (Labios/Rostro)
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
+                        Ácido Hialurónico (Labios y Rostro)
                     </li>
-                    <li class="benefit-item">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        Bioestimuladores de Colágeno
+                    <li class="service-item">
+                        <div class="icon-check">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                            </svg>
+                        </div>
+                        Bioestimuladores de Colágeno Puro
                     </li>
                 </ul>
-            </div>
-        </div>
+            </section>
+
+            <section class="visual-container">
+                <div class="image-wrapper">
+                    <div class="overlay-effect"></div>
+                    <img src="assets/images/gallery/Armonizacion Facila.webp" alt="Armonización Facial"
+                        class="main-image">
+                </div>
+
+                <div class="floating-badge">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <div class="badge-text">
+                        <span>Armonía</span>
+                        <strong>Natural</strong>
+                    </div>
+                </div>
+            </section>
+        </article>
 
         <!-- CTA Final -->
-        <section class="py-20 px-6">
+        <section class="py-20 px-6 reveal">
             <div
-                class="max-w-5xl mx-auto bg-[#f8fbff] rounded-[3rem] p-12 md:p-20 text-center shadow-sm border border-primary/10 reveal">
-                <h2 class="text-4xl md:text-6xl font-serif text-slate-900 mb-6 leading-tight">
+                class="max-w-5xl mx-auto bg-white/70 backdrop-blur-xl rounded-[3rem] p-12 md:p-20 text-center shadow-2xl shadow-primary/10 border border-white">
+                <h2 class="text-4xl md:text-6xl font-display text-slate-900 mb-6 leading-tight">
                     ¿Lista para tu <span class="italic text-primary">Transformación?</span>
                 </h2>
-                <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light">
+                <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                     Escríbenos hoy y agendamos una valoración profesional personalizada.
                 </p>
                 <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20mi%20valoraci%C3%B3n."
-                    target="_blank"
-                    class="inline-block bg-[#111a21] text-white px-12 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 active:scale-95">
+                    target="_blank" class="btn-cta inline-block">
                     Hablar con una Especialista
                 </a>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-white border-t border-slate-200 pt-16 pb-10 mt-10" style="font-family: 'Newsreader', serif;"
@@ -587,7 +790,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-6">
-                        <img src="assets/images/logo.png" alt="Dra. Mildred Moreno Logo"
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
                             class="h-16 w-auto object-contain">
                     </div>
                     <p class="text-slate-500 text-sm leading-relaxed mb-6">
