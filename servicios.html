@@ -652,7 +652,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.grid-row, .section-header').forEach(el => {
+        document.querySelectorAll('.grid-row, .section-header, section, .reveal').forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
         });

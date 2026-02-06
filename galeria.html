@@ -559,7 +559,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.gallery-item, header').forEach(el => {
+        document.querySelectorAll('.gallery-item, header, .reveal').forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
         });
