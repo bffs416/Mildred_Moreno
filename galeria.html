@@ -97,18 +97,83 @@
         }
 
         /* Gallery Styles */
-        .gallery-item {
+        /* Neumorphic Card Styles */
+        .shadowbox-outer {
+            padding: 40px;
+            background: var(--bg-color);
+            border-radius: 50px;
+            box-shadow: 20px 20px 60px rgba(163, 177, 198, 0.5),
+                -20px -20px 60px rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .shadowbox-outer:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .shadowbox-outer h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin: 0 !important;
+            background: linear-gradient(135deg, #4a7ba2 0%, #7ab2e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(2px 4px 6px rgba(90, 143, 187, 0.2));
+            position: relative;
+            z-index: 1;
+            padding-bottom: 5px;
+        }
+
+        .shadowbox-outer h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #7ab2e1;
+            margin: 8px auto 0;
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .shadowbox-outer>div.mt-6 {
+            margin-top: 35px !important;
+        }
+
+        .shadowbox-inner {
+            position: relative;
+            width: 100%;
             aspect-ratio: 4/5;
+            background: var(--bg-color);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: inset 8px 8px 16px rgba(163, 177, 198, 0.4),
+                inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+            border: 8px solid var(--bg-color);
         }
 
-        /* Before/After Specifics */
-        .img-before {
-            filter: grayscale(100%) contrast(1.1);
-            /* Simulation of 'Before' state */
+        .image-container {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
         }
 
-        .gallery-caption {
-            background: linear-gradient(to top, rgba(17, 26, 33, 0.95), transparent);
+        .display-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .reveal {
@@ -122,14 +187,62 @@
             transform: translateY(0);
         }
 
-        /* Performance optimizations */
-        .gallery-item {
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 400px;
+        /* Simple Before/After Hover */
+        .ba-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
-        img {
-            content-visibility: auto;
+        .ba-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .img-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .ba-container:hover .img-after {
+            opacity: 1;
+        }
+
+        /* Badge Styles */
+        .wa-badge {
+            position: absolute;
+            bottom: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            pointer-events: none;
+            z-index: 5;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-before {
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #64748b;
+        }
+
+        .badge-after {
+            right: 15px;
+            background: var(--primary);
+            color: #fff;
+            /* Assuming white text for contrast on primary color */
+            background-color: #A7C7E7;
+            /* Hardcoding primary for safety or use var if defined */
+            color: #111a21;
         }
     </style>
     <link
@@ -189,273 +302,301 @@
         </header>
 
         <p class="text-center text-slate-500 max-w-2xl mx-auto mb-12 font-light">
-            Desliza el cursor sobre las imágenes para ver el resultado final (Después).
+            Pasa el cursor sobre las imágenes para ver la transformación.
             <br>
-            <span
-                class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded mt-2 inline-block border border-yellow-200">
-                Nota: Para cambiar fotos, actualiza el "src" de las imágenes. La primera es el RESULTADO, la segunda es
-                el ANTES.
+            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded mt-2 inline-block border border-blue-200">
+                El estado inicial ("Antes") se muestra por defecto.
             </span>
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- 1. VASER HD -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/vaser-despues.jpg" alt="Después"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy" decoding="async">
-                <img src="assets/images/gallery/vaser-antes.jpg" alt="Antes"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 group-hover:opacity-0"
-                    loading="lazy" decoding="async">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded transition-opacity duration-300 opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded transition-opacity duration-300 opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_1.png" alt="Lipoescultura VASER Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_1.png" alt="Lipoescultura VASER Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
                     <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
-                    <p class="text-white/80 text-sm font-light">Definición abdominal atlética</p>
+                    <p class="text-slate-500 text-sm font-light">Definición abdominal atlética</p>
                 </div>
             </div>
 
             <!-- 2. Lipopapada -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/lipopapada-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/lipopapada-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Lipopapada HD</h4>
-                    <p class="text-white/80 text-sm font-light">Perfilación mandibular</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_2.png" alt="Lipopapada HD Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_2.png" alt="Lipopapada HD Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Contorno y definición</p>
                 </div>
             </div>
 
             <!-- 3. Rinomodelación -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/rinomodelacion-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/rinomodelacion-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Rinomodelación</h4>
-                    <p class="text-white/80 text-sm font-light">Corrección sin cirugía</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_3.png" alt="Rinomodelación Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_3.png" alt="Rinomodelación Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Escultura corporal HD</p>
                 </div>
             </div>
 
             <!-- 4. Lipotransferencia -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/lipotransferencia-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/lipotransferencia-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Lipotransferencia</h4>
-                    <p class="text-white/80 text-sm font-light">Volumen glúteo natural</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_4.png" alt="Lipotransferencia Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_4.png" alt="Lipotransferencia Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Resultados naturales</p>
                 </div>
             </div>
 
             <!-- 5. Armonización -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/armonizacion-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/armonizacion-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Armonización</h4>
-                    <p class="text-white/80 text-sm font-light">Equilibrio facial total</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_5.png" alt="Armonización Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_5.png" alt="Armonización Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipo Papada</h4>
+                    <p class="text-slate-500 text-sm font-light">Perfilamiento facial</p>
                 </div>
             </div>
 
             <!-- 6. Labios -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/labios-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/labios-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Labios Rusos</h4>
-                    <p class="text-white/80 text-sm font-light">Volumen e hidratación</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_6.png" alt="Labios Rusos Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_6.png" alt="Labios Rusos Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Transformación total</p>
                 </div>
             </div>
 
             <!-- 7. Fox Eyes -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/foxeyes-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/foxeyes-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Fox Eyes</h4>
-                    <p class="text-white/80 text-sm font-light">Hilos tensores temporales</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_7.png" alt="Fox Eyes Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_7.png" alt="Fox Eyes Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Silueta definida</p>
                 </div>
             </div>
 
             <!-- 8. Piel de Porcelana -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/piel-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/piel-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Piel de Porcelana</h4>
-                    <p class="text-white/80 text-sm font-light">Revitalización profunda</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_8.png" alt="Piel de Porcelana Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_8.png" alt="Piel de Porcelana Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Transferencia Glútea</h4>
+                    <p class="text-slate-500 text-sm font-light">Aumento y proyección</p>
                 </div>
             </div>
 
             <!-- 9. Marcación Mandibular -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/marcacion-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/marcacion-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Marcación Mandibular</h4>
-                    <p class="text-white/80 text-sm font-light">Ácido Hialurónico</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_9.png" alt="Marcación Mandibular Antes"
+                                class="ba-img">
+                            <img src="assets/images/gallery/Despues_9.png" alt="Marcación Mandibular Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Piel de Porcelana</h4>
+                    <p class="text-slate-500 text-sm font-light">Revitalización profunda</p>
                 </div>
             </div>
 
             <!-- 10. Lipo de Brazos -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/brazos-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/brazos-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Lipo de Brazos</h4>
-                    <p class="text-white/80 text-sm font-light">Reducción y tensado</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_10.png" alt="Lipo de Brazos Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_10.png" alt="Lipo de Brazos Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Reducción y tensado</p>
                 </div>
             </div>
 
             <!-- 11. Rejuvenecimiento -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/rejuvenecimiento-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/rejuvenecimiento-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Rejuvenecimiento</h4>
-                    <p class="text-white/80 text-sm font-light">Manos y Cuello</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_11.png" alt="Rejuvenecimiento Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_11.png" alt="Rejuvenecimiento Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Lipoescultura VASER</h4>
+                    <p class="text-slate-500 text-sm font-light">Rejuvenecimiento corporal</p>
                 </div>
             </div>
 
             <!-- 12. Full Face -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/fullface-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/fullface-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Full Face</h4>
-                    <p class="text-white/80 text-sm font-light">Tratamiento integral</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_12.png" alt="Full Face Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_12.png" alt="Full Face Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Ojeras</h4>
+                    <p class="text-slate-500 text-sm font-light">Mirada descansada</p>
                 </div>
             </div>
 
             <!-- 13. Glow Up -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/glowup-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/glowup-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Glow Up</h4>
-                    <p class="text-white/80 text-sm font-light">Luminosidad instantánea</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_13.png" alt="Glow Up Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_13.png" alt="Glow Up Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Glow Up Palpebral</h4>
+                    <p class="text-slate-500 text-sm font-light">Rejuvenecimiento de párpados</p>
                 </div>
             </div>
 
             <!-- 14. Bioestimuladores -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/bioestimuladores-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/bioestimuladores-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Bioestimuladores</h4>
-                    <p class="text-white/80 text-sm font-light">Radiesse & Sculptra</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_14.png" alt="Bioestimuladores Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_14.png" alt="Bioestimuladores Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Glow Up Palpebral</h4>
+                    <p class="text-slate-500 text-sm font-light">Mirada radiante</p>
                 </div>
             </div>
 
             <!-- 15. Toxina Botulínica -->
-            <div class="gallery-item relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
-                <img src="assets/images/gallery/toxina-despues.jpg"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <img src="assets/images/gallery/toxina-antes.jpg"
-                    class="img-before absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-100 group-hover:opacity-0">
-                <span
-                    class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-100 group-hover:opacity-0">Antes</span>
-                <span
-                    class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded opacity-0 group-hover:opacity-100">Después</span>
-                <div
-                    class="gallery-caption absolute bottom-0 left-0 w-full p-6 translate-y-4 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <h4 class="font-serif text-2xl text-primary mb-1">Toxina Botulínica</h4>
-                    <p class="text-white/80 text-sm font-light">Prevención de arrugas</p>
+            <div class="shadowbox-outer">
+                <div class="shadowbox-inner">
+                    <div class="image-container">
+                        <div class="ba-container">
+                            <span class="wa-badge badge-before">Antes</span>
+                            <span class="wa-badge badge-after">Despues</span>
+                            <img src="assets/images/gallery/Antes_15.png" alt="Toxina Botulínica Antes" class="ba-img">
+                            <img src="assets/images/gallery/Despues_15.png" alt="Toxina Botulínica Despues"
+                                class="ba-img img-after">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center">
+                    <h4 class="font-serif text-2xl text-primary mb-1">Glow Up Palpebral</h4>
+                    <p class="text-slate-500 text-sm font-light">Prevención de arrugas</p>
                 </div>
             </div>
         </div>
+
         <!-- CTA Final -->
         <section class="py-20 px-6">
             <div
