@@ -90,6 +90,25 @@
             font-size: 3rem;
             font-family: serif;
         }
+
+        .testimonial-image-container {
+            width: 7rem;
+            height: 7rem;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            padding: 4px;
+            border: 2px solid var(--primary);
+            background: white;
+            box-shadow: 0 8px 20px rgba(167, 199, 231, 0.2);
+            overflow: hidden;
+        }
+
+        .testimonial-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
     </style>
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -158,14 +177,13 @@
                 </div>
                 <div class="relative reveal">
                     <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop"
-                            alt="Profesionalismo Médico" class="w-full h-full object-cover" loading="lazy"
-                            decoding="async">
+                        <img src="assets/images/gallery/Mildred.jpeg" alt="Profesionalismo Médico"
+                            class="w-full h-full object-cover" loading="lazy" decoding="async">
                     </div>
                     <div
                         class="absolute -bottom-6 -left-6 bg-white p-8 rounded-xl shadow-xl border-l-4 border-primary max-w-xs">
                         <p class="text-primary font-bold text-3xl mb-1">15+</p>
-                        <p class="text-accent-dark text-xs uppercase tracking-widest font-semibold">Años de Maestría
+                        <p class="text-accent-dark text-xs uppercase tracking-widest font-semibold">Años de Experiencia
                             Médica</p>
                     </div>
                 </div>
@@ -203,59 +221,102 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card p-10 rounded-2xl reveal">
+                <!-- Testimonial 1: Ojeras Masculino -->
+                <div class="testimonial-card p-10 rounded-2xl reveal text-center">
+                    <div class="testimonial-image-container">
+                        <img src="assets/images/gallery/1.png" alt="Resultado Real - Tratamiento de Ojeras Masculino">
+                    </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
-                        "La Dra. Moreno no solo es una excelente profesional, sino una artista. Mi rinomodelación quedó
-                        tan natural que nadie cree que es un procedimiento. Su equipo me hizo sentir segura en todo
-                        momento."
+                        "Como ejecutivo, siempre me preguntaban si estaba cansado. El tratamiento con la Dra. Moreno me
+                        quitó años de encima y devolvió la frescura a mi mirada de forma totalmente natural."
                     </p>
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
-                            MC</div>
-                        <div>
-                            <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Mariana Castro</h5>
-                            <p class="text-slate-400 text-xs">Armonización Facial</p>
-                        </div>
+                    <div>
+                        <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Ricardo Mendoza</h5>
+                        <p class="text-slate-400 text-xs">Tratamiento de Ojeras</p>
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card p-10 rounded-2xl reveal" style="transition-delay: 100ms;">
+                <!-- Testimonial 2: Vaser Confianza 1 -->
+                <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 100ms;">
+                    <div class="testimonial-image-container">
+                        <img src="assets/images/gallery/2.png" alt="Resultado Real - Lipoescultura Vaser">
+                    </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
-                        "Buscaba definición abdominal y con el sistema VASER la Dra. superó mis expectativas. El
-                        profesionalismo de la clínica es impecable, desde la primera cita hasta el postoperatorio."
+                        "La lipoescultura VASER cambió mi vida por completo. Siempre me escondía tras ropa ancha, pero
+                        ahora mi autoconfianza es otra. Me siento segura de mi cuerpo y por fin me atrevo a usar lo que
+                        me gusta."
                     </p>
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
-                            JP</div>
-                        <div>
-                            <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Juan Pablo Méndez
-                            </h5>
-                            <p class="text-slate-400 text-xs">Lipoescultura VASER HD</p>
-                        </div>
+                    <div>
+                        <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Camila Rivera</h5>
+                        <p class="text-slate-400 text-xs">Lipoescultura Vaser</p>
                     </div>
                 </div>
 
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card p-10 rounded-2xl reveal" style="transition-delay: 200ms;">
+                <!-- Testimonial 3: Vaser Confianza 2 -->
+                <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 200ms;">
+                    <div class="testimonial-image-container">
+                        <img src="assets/images/gallery/3.png" alt="Resultado Real - Vaser HD">
+                    </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
-                        "Hice un tratamiento de Full Face y el resultado es increíblemente sutil. Me veo descansada, con
-                        la piel luminosa. Es la única doctora a la que confío mi rostro médico-estéticamente."
+                        "Lo que más agradezco no es solo el cambio físico, sino cómo mejoró mi autoestima. La Dra.
+                        Moreno es una artista que entiende lo que una paciente necesita para sentirse empoderada y
+                        renovada."
                     </p>
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
-                            SR</div>
-                        <div>
-                            <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Sofía Rodríguez</h5>
-                            <p class="text-slate-400 text-xs">Pack Rejuvenecimiento</p>
-                        </div>
+                    <div>
+                        <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Valeria Santos</h5>
+                        <p class="text-slate-400 text-xs">Vaser HD</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4: Marcación Abdominal Hombre -->
+                <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 300ms;">
+                    <div class="testimonial-image-container">
+                        <img src="assets/images/gallery/4.png" alt="Resultado Real - Marcación Abdominal Vaser">
+                    </div>
+                    <span class="quote-icon">“</span>
+                    <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
+                        "Buscaba ese toque atlético difícil de lograr solo con gimnasio. La marcación abdominal VASER me
+                        dio la definición que quería. Es increíble verse al espejo y sentirse así de bien."
+                    </p>
+                    <div>
+                        <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Juan Pablo Méndez</h5>
+                        <p class="text-slate-400 text-xs">Marcación Abdominal</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5: Glúteos Perfectos -->
+                <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 400ms;">
+                    <div class="testimonial-image-container">
+                        <img src="assets/images/gallery/6.png" alt="Resultado Real - Glúteos Perfectos">
+                    </div>
+                    <span class="quote-icon">“</span>
+                    <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
+                        "Mis glúteos ahora tienen una forma perfecta y natural. La armonía que la Dra. logró en mi
+                        contorno es impresionante. ¡Mejoró mi silueta y mi confianza al caminar de una manera
+                        increíble!"
+                    </p>
+                    <div>
+                        <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Isabella Gómez</h5>
+                        <p class="text-slate-400 text-xs">Lipoescultura de Glúteos</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6: Papada -->
+                <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 500ms;">
+                    <div class="testimonial-image-container">
+                        <img src="assets/images/gallery/5.png" alt="Resultado Real - Lipopapada Vaser">
+                    </div>
+                    <span class="quote-icon">“</span>
+                    <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
+                        "Huir de las fotos de perfil era mi día a día. Tras la extracción de papada, mi cuello se ve
+                        estilizado y mi rostro mucho más delgado. Es el cambio que siempre quise para sentirme bien."
+                    </p>
+                    <div>
+                        <h5 class="text-accent-dark font-bold text-sm uppercase tracking-wide">Andrea Salazar</h5>
+                        <p class="text-slate-400 text-xs">Lipopapada & Perfilación</p>
                     </div>
                 </div>
             </div>
