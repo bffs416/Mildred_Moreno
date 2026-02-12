@@ -12,6 +12,9 @@
         rel="stylesheet" media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="assets/images/gallery/Art1.png" />
+    <link rel="preload" as="image" href="assets/images/gallery/logo.webp" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -804,19 +807,21 @@
     <script>
         // Reveal on Scroll Logic
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.05,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.gallery-item, header, .reveal').forEach(el => {
-            el.classList.add('reveal');
+        document.querySelectorAll('.reveal, .shadowbox-outer').forEach(el => {
+            if (!el.classList.contains('reveal')) el.classList.add('reveal');
             observer.observe(el);
         });
 

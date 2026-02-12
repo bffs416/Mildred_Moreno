@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href="assets/images/gallery/hero.webp" />
+    <link rel="preload" as="image" href="assets/images/gallery/logo.webp" />
     <link
         href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap"
         rel="stylesheet" media="print" onload="this.media='all'" />
@@ -110,10 +111,6 @@
         header,
         nav {
             content-visibility: visible;
-        }
-
-        img {
-            content-visibility: auto;
         }
     </style>
 </head>
@@ -820,17 +817,21 @@
         <script>
             // Reveal on Scroll Logic
             const observerOptions = {
-                threshold: 0.15
+                threshold: 0.05,
+                rootMargin: '0px 0px -50px 0px'
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        // Once revealed, no need to observe anymore
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
+            // Initialize reveal elements
             document.querySelectorAll('section, article, .editorial-card, .cta-section').forEach(el => {
                 el.classList.add('reveal');
                 observer.observe(el);

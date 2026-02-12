@@ -7,6 +7,9 @@
     <title>Filosofía y Testimonios - Dra. Mildred Moreno</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="assets/images/gallery/hero.webp" />
+    <link rel="preload" as="image" href="assets/images/gallery/logo.webp" />
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;600&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
@@ -224,7 +227,8 @@
                 <!-- Testimonial 1: Ojeras Masculino -->
                 <div class="testimonial-card p-10 rounded-2xl reveal text-center">
                     <div class="testimonial-image-container">
-                        <img src="assets/images/gallery/1.png" alt="Resultado Real - Tratamiento de Ojeras Masculino">
+                        <img src="assets/images/gallery/1.png" alt="Resultado Real - Tratamiento de Ojeras Masculino"
+                            loading="lazy" decoding="async">
                     </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
@@ -240,7 +244,8 @@
                 <!-- Testimonial 2: Vaser Confianza 1 -->
                 <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 100ms;">
                     <div class="testimonial-image-container">
-                        <img src="assets/images/gallery/2.png" alt="Resultado Real - Lipoescultura Vaser">
+                        <img src="assets/images/gallery/2.png" alt="Resultado Real - Lipoescultura Vaser" loading="lazy"
+                            decoding="async">
                     </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
@@ -257,7 +262,8 @@
                 <!-- Testimonial 3: Vaser Confianza 2 -->
                 <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 200ms;">
                     <div class="testimonial-image-container">
-                        <img src="assets/images/gallery/3.png" alt="Resultado Real - Vaser HD">
+                        <img src="assets/images/gallery/3.png" alt="Resultado Real - Vaser HD" loading="lazy"
+                            decoding="async">
                     </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
@@ -274,7 +280,8 @@
                 <!-- Testimonial 4: Marcación Abdominal Hombre -->
                 <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 300ms;">
                     <div class="testimonial-image-container">
-                        <img src="assets/images/gallery/4.png" alt="Resultado Real - Marcación Abdominal Vaser">
+                        <img src="assets/images/gallery/4.png" alt="Resultado Real - Marcación Abdominal Vaser"
+                            loading="lazy" decoding="async">
                     </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
@@ -290,7 +297,8 @@
                 <!-- Testimonial 5: Glúteos Perfectos -->
                 <div class="testimonial-card p-10 rounded-2xl reveal text-center" style="transition-delay: 400ms;">
                     <div class="testimonial-image-container">
-                        <img src="assets/images/gallery/6.png" alt="Resultado Real - Glúteos Perfectos">
+                        <img src="assets/images/gallery/6.png" alt="Resultado Real - Glúteos Perfectos" loading="lazy"
+                            decoding="async">
                     </div>
                     <span class="quote-icon">“</span>
                     <p class="text-slate-600 italic mb-8 -mt-4 leading-relaxed">
@@ -382,10 +390,16 @@
 
     <script>
         // Reveal on Scroll
-        const observerOptions = { threshold: 0.15 };
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: '0px 0px -50px 0px'
+        };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
             });
         }, observerOptions);
 
