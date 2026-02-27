@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Explantación Mamaria - Dra. Mildred Moreno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#A7C7E7",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111a21",
+                        "charcoal": "#1a1a1a",
+                        "dark-grey": "#2d2d2d",
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "sans": ["Outfit", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-50 antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+    <nav
+        class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-[1440px] mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-900 dark:text-white">
+                    <span class="material-symbols-outlined dropdown-icon">menu</span>
+                </button>
+                <div class="hidden md:flex flex-1 justify-start gap-5 lg:gap-8">
+                    <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
+                        href="filosofia.html">Filosofía</a>
+                    <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
+                        href="index.html#meet-me">Dra. Moreno</a>
+                    <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
+                        href="servicios.html">Servicios</a>
+                </div>
+                <div class="flex-shrink-0 flex items-center justify-center mx-4 lg:mx-8">
+                    <a href="index.html">
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
+                            class="h-10 md:h-12 lg:h-14 w-auto object-contain" loading="lazy" decoding="async">
+                    </a>
+                </div>
+                <div class="hidden md:flex flex-1 justify-end items-center gap-5 lg:gap-8">
+                    <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
+                        href="galeria.html">Resultados</a>
+                    <a class="text-sm font-medium tracking-wide text-primary uppercase" href="blog.html">Blog</a>
+                    <a class="text-sm font-medium tracking-wide hover:text-primary transition-colors uppercase"
+                        href="#contact">Contacto</a>
+                    <a href="https://wa.me/573014339938" target="_blank"
+                        class="bg-primary text-white px-5 py-2 rounded-full text-xs flex items-center justify-center font-bold uppercase tracking-wider hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        Agendar Cita
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-slate-900 dark:text-white">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none">
+        <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
+            href="filosofia.html">Filosofía</a>
+        <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
+            href="index.html#meet-me">Dra. Moreno</a>
+        <a class="text-2xl font-medium tracking-wide text-primary transition-colors uppercase mobile-link"
+            href="servicios.html">Servicios</a>
+        <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
+            href="galeria.html">Resultados</a>
+        <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
+            href="blog.html">Blog</a>
+        <a class="text-2xl font-medium tracking-wide hover:text-primary transition-colors uppercase mobile-link"
+            href="#contact">Contacto</a>
+        <a href="https://wa.me/573014339938" target="_blank"
+            class="bg-primary text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 mt-4">
+            Agendar Cita
+        </a>
+        <button id="close-menu-btn" class="absolute top-6 right-6 p-2 text-slate-900 dark:text-white">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+    </div>
+
+    <article class="max-w-[900px] mx-auto px-6 py-16 md:py-24">
+        <!-- Header -->
+        <header class="text-center mb-16 reveal">
+            <span
+                class="inline-block px-4 py-1.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em] rounded-full mb-8">Tratamiento
+                Exclusivo</span>
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-display text-slate-900 dark:text-white leading-[1.1] mb-8 tracking-tight">
+                Explantación Mamaria: <br><span class="italic text-primary font-light">Recupera tu Bienestar</span> y
+                Belleza
+            </h1>
+            <p class="text-lg md:text-xl text-slate-500 font-light max-w-2xl mx-auto">
+                Acompañamiento médico experto para una transición segura hacia tu figura natural.
+            </p>
+        </header>
+
+        <!-- Featured Visual -->
+        <div
+            class="mb-16 rounded-2xl overflow-hidden shadow-xl reveal relative aspect-[3/4] sm:aspect-square md:aspect-[16/10] flex items-center justify-center bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+            <img src="assets/images/gallery/explantacion-ilustracion.png"
+                alt="Explantación Mamaria - Ilustración de Salud"
+                class="w-full h-full object-cover object-[center_60%] md:object-[center_65%] mix-blend-multiply dark:mix-blend-screen">
+            <div
+                class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background-light dark:from-background-dark via-background-light/40 dark:via-background-dark/40 to-transparent">
+            </div>
+        </div>
+
+        <div
+            class="prose prose-xl dark:prose-invert mx-auto text-slate-600 dark:text-slate-300 font-light leading-relaxed reveal max-w-4xl">
+            <p
+                class="text-xl md:text-2xl leading-relaxed text-slate-800 dark:text-slate-100 mb-12 border-l-4 border-primary pl-8">
+                Tu salud y tu tranquilidad son lo primero. Cada vez más mujeres deciden retirar sus implantes mamarios
+                para reconectarse con su cuerpo, aliviar síntomas físicos o simplemente por una evolución en su estilo
+                de vida y percepción de la belleza. Como especialista, la Dra. Mildred Moreno te ofrece una evaluación
+                honesta, segura y estéticamente superior para guiarte en este importante paso.
+            </p>
+
+            <h3 class="text-3xl font-display text-slate-900 dark:text-white mt-16 mb-8">¿Por qué considerar la
+                Explantación Mamaria?</h3>
+            <p class="mb-6">
+                La decisión de retirar las prótesis mamarias es profundamente personal y, a menudo, transformadora. Las
+                pacientes de la Dra. Moreno suelen elegir este procedimiento por razones médicas o de bienestar
+                integral:
+            </p>
+
+            <div class="my-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary mb-3 text-3xl">health_and_safety</span>
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Salud y Síndrome de ASIA (BII)
+                    </h4>
+                    <p class="text-sm">Muchas mujeres experimentan síntomas sistémicos inespecíficos como fatiga
+                        crónica, dolores articulares, niebla mental o alteraciones dermatológicas, que a menudo mejoran
+                        tras el retiro del implante.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary mb-3 text-3xl">healing</span>
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Complicaciones Locales</h4>
+                    <p class="text-sm">Presencia de contractura capsular (endurecimiento doloroso), ruptura del implante
+                        transparente o intracapsular, o calcificaciones que generan incomodidad.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                    <span class="material-symbols-outlined text-primary mb-3 text-3xl">self_improvement</span>
+                    <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Cambio de Estilo de Vida</h4>
+                    <p class="text-sm">El deseo de un aspecto más atlético, mayor comodidad al hacer ejercicio o dormir,
+                        o simplemente la preferencia actual por senos más pequeños, livianos y naturales.</p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-display text-slate-900 dark:text-white mt-16 mb-8">La Experiencia (Expertise) de la
+                Dra. Mildred Moreno</h3>
+            <p class="mb-8">
+                Retirar un implante no es solo "sacar la prótesis"; el verdadero desafío es restaurar la forma,
+                proyección y armonía del seno. La Dra. Mildred Moreno se destaca por dominar las técnicas
+                reconstructivas necesarias para ofrecerte el mejor resultado estético posible:
+            </p>
+
+            <div class="space-y-12">
+                <div>
+                    <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-3 flex items-center gap-3">
+                        <span
+                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">1</span>
+                        Técnica Quirúrgica Precisa y Capsulectomía
+                    </h4>
+                    <p>Dependiendo de tu diagnóstico (especialmente en casos de ruptura o sospecha de ASIA), la Dra.
+                        Moreno evalúa la necesidad de realizar una <strong>capsulectomía total o "en bloque"</strong>
+                        (extracción del implante junto con el tejido cicatricial que lo rodea) para asegurar una
+                        limpieza óptima de los tejidos y eliminar cualquier residuo.</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-3 flex items-center gap-3">
+                        <span
+                            class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">2</span>
+                        Mastopexia (Levantamiento Mamario)
+                    </h4>
+                    <p>Tras la retirada de los implantes, es común que quede un excedente de piel y flacidez. La Dra.
+                        Moreno utiliza técnicas avanzadas de mastopexia para remodelar el tejido glandular restante,
+                        reposicionar la areola y reconstruir un cono mamario firme, armónico y juvenil.</p>
+                </div>
+                <div class="bg-primary/5 p-8 rounded-3xl border border-primary/20">
+                    <h4 class="text-2xl font-bold text-primary mb-3 flex items-center gap-3">
+                        <span
+                            class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm">3</span>
+                        El Diferenciador: Lipotransferencia Asistida por VASER
+                    </h4>
+                    <p class="mb-4">Aquí es donde la especialidad principal de la Dra. Moreno brilla. Para compensar la
+                        pérdida de volumen y evitar un aspecto "vacío", se puede realizar un <strong>injerto de grasa
+                            autóloga</strong> (tu propia grasa).</p>
+                    <p class="font-medium text-slate-700 dark:text-slate-200">¿La ventaja?</p>
+                    <p>Al utilizar la tecnología VASER para extraer la grasa de otras zonas (como abdomen o flancos), se
+                        garantiza una alta supervivencia de las células grasas y células madre. Esto logra un relleno
+                        mamario suave, natural y permanente, mientras esculpes tu contorno corporal en la misma cirugía.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-display text-slate-900 dark:text-white mt-16 mb-8">Tu Proceso de Recuperación: Un
+                Renacer</h3>
+            <p class="mb-6">
+                Entendemos que el cambio puede generar dudas sobre cómo te verás. La recuperación es progresiva; durante
+                las primeras semanas los tejidos se adaptarán a su nuevo volumen y posición. Entre los 3 y 6 meses,
+                notarás el resultado definitivo: un pecho natural, cicatrices en proceso de maduración, y sobre todo,
+                una profunda sensación de ligereza, alivio físico y bienestar emocional.
+            </p>
+            <p class="mb-12 font-medium">
+                La Dra. Moreno y su equipo te acompañarán semana a semana, garantizando que tu evolución sea cómoda,
+                segura y contenida.
+            </p>
+
+            <!-- FAQs -->
+            <div
+                class="mt-16 bg-white dark:bg-slate-900/50 rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100 dark:border-slate-800">
+                <h3 class="text-2xl md:text-3xl font-display text-slate-900 dark:text-white mb-8 text-center">Preguntas
+                    Frecuentes</h3>
+
+                <div class="space-y-6">
+                    <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl p-6 cursor-pointer">
+                        <summary
+                            class="flex justify-between items-center font-bold text-slate-800 dark:text-slate-200 list-none">
+                            ¿Cómo ayuda el VASER en la reconstrucción del seno?
+                            <span class="transition group-open:rotate-180">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </span>
+                        </summary>
+                        <p class="text-slate-600 dark:text-slate-400 mt-4 text-base font-normal leading-relaxed">
+                            El VASER permite extraer grasa de otras partes del cuerpo con un daño celular mínimo. Esto
+                            asegura que la grasa transferida al seno tenga una alta tasa de supervivencia,
+                            proporcionando un volumen natural y duradero para compensar el espacio que deja el implante.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl p-6 cursor-pointer">
+                        <summary
+                            class="flex justify-between items-center font-bold text-slate-800 dark:text-slate-200 list-none">
+                            ¿Qué es la capsulectomía en bloque y por qué importa?
+                            <summary class="hidden"></summary>
+                            <span class="transition group-open:rotate-180">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </span>
+                        </summary>
+                        <p class="text-slate-600 dark:text-slate-400 mt-4 text-base font-normal leading-relaxed">
+                            Es una técnica quirúrgica donde se extrae el implante junto con toda la cápsula de tejido
+                            cicatricial que lo envuelve, de forma intacta. Es vital en casos de ruptura de implantes o
+                            sospecha de Síndrome de ASIA para asegurar que no queden partículas o contaminantes en el
+                            cuerpo.
+                        </p>
+                    </details>
+
+                    <details class="group bg-slate-50 dark:bg-slate-800 rounded-xl p-6 cursor-pointer">
+                        <summary
+                            class="flex justify-between items-center font-bold text-slate-800 dark:text-slate-200 list-none">
+                            ¿Cuánto tiempo toma la recuperación total tras la explantación?
+                            <span class="transition group-open:rotate-180">
+                                <span class="material-symbols-outlined">expand_more</span>
+                            </span>
+                        </summary>
+                        <p class="text-slate-600 dark:text-slate-400 mt-4 text-base font-normal leading-relaxed">
+                            La recuperación inicial toma entre 1 a 2 semanas para volver a actividades ligeras. Sin
+                            embargo, los tejidos mamarios continúan reacomodándose, y el resultado estético final —junto
+                            con la desinflamación completa— suele verse entre los 3 y 6 meses posteriores a la cirugía.
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="mt-8 text-sm text-slate-400 italic text-center">
+                Nota: La información médica proporcionada es de carácter educativo. Todo procedimiento quirúrgico
+                requiere una evaluación clínica personalizada para determinar la técnica adecuada y los riesgos
+                individuales.
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-20 p-10 bg-primary/10 rounded-3xl text-center border border-primary/20 reveal">
+            <h3 class="text-3xl font-display text-slate-900 dark:text-white mb-4">¿Estás lista para dar el paso hacia lo
+                natural?</h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-lg mx-auto">
+                No tienes que recorrer este camino sola. Si tienes dudas sobre el estado de tus implantes, presentas
+                síntomas, o simplemente deseas volver a tu anatomía natural con el mejor resultado estético, estamos
+                aquí para escucharte y asesorarte sin juicios.
+            </p>
+            <a href="https://wa.me/573014339938?text=Hola%2C%20quisiera%20agendar%20una%20Consulta%20de%20Valoraci%C3%B3n%20Integral%20para%20Explantaci%C3%B3n%20Mamaria."
+                target="_blank"
+                class="inline-block bg-primary text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest hover:brightness-105 transition-all shadow-xl hover:-translate-y-1">
+                👉 Agenda tu Consulta de Valoración Integral
+            </a>
+            <p class="mt-4 text-sm text-slate-500">Hablemos de tus expectativas y diseñemos juntas el mejor plan para tu
+                cuerpo.</p>
+        </div>
+
+    </article>
+
+    <footer
+        class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pt-20 pb-10"
+        id="contact">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="mb-6">
+                        <img src="assets/images/gallery/logo.webp" alt="Dra. Mildred Moreno Logo"
+                            class="h-16 w-auto object-contain">
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                        Elevando la medicina estética a través de la ciencia y el arte. Experimenta la diferencia de una
+                        verdadera maestría.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300"
+                            href="https://twitter.com/dramildredmoreno" target="_blank">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-slate-600 dark:text-slate-300"
+                            href="https://www.instagram.com/avanzadamedicina_estetica?igsh=c3N3eGJqbGp3ZWQ0&utm_source=qr"
+                            target="_blank">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">Clínica
+                    </h5>
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="filosofia.html">Nuestra Filosofía</a></li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="galeria.html">Resultados</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">
+                        Tratamientos</h5>
+                    <ul class="flex flex-col gap-3">
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#facial">Rostro</a>
+                        </li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicios.html#corporal">Cuerpo</a>
+                        </li>
+                        <li><a class="text-sm text-slate-500 hover:text-primary transition-colors"
+                                href="servicio-explantacion.html">Explantación</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs mb-6">Contacto
+                    </h5>
+                    <ul class="flex flex-col gap-4">
+                        <li class="flex items-start gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg mt-0.5">location_on</span>
+                            <span>Cl. 53b #24-80, Teusaquillo<br />Bogotá, Colombia</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg">call</span>
+                            <span>+57 301 4339938</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-500">
+                            <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                            <span>citas@dramoreno.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-400">© 2026 Dra. Mildred Moreno. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Política de Privacidad</a>
+                    <a class="text-xs text-slate-400 hover:text-primary" href="legal.html">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573014339938" target="_blank"
+        class="fixed bottom-8 right-8 z-[100] bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.589.943 3.129 1.455 4.888 1.456 5.484 0 9.947-4.463 9.949-9.948 0-2.652-1.033-5.145-2.909-7.022-1.875-1.875-4.37-2.907-7.022-2.907-5.485 0-9.948 4.462-9.95 9.947a9.885 9.885 0 001.402 4.957l-1.066 3.89 3.998-1.049zm11.387-5.477c-.31-.155-1.837-.906-2.121-1.01-.284-.103-.49-.155-.697.155-.206.31-.799.103-1.01.103-.31-.206-.413-.413-.413-.722 0-.31 1.341-2.99 1.341-2.99s-.103-.206-.31-.31c-.206-.103-1.341-2.99-1.341-2.99s-.206-.31-.62-.155c-.413.155-2.064.914-2.064 2.652 0 1.739 1.272 3.414 1.45 3.65.178.236 2.504 3.824 6.066 5.366.847.367 1.503.585 2.016.748.85.27 1.624.232 2.235.141.681-.101 2.121-.867 2.418-1.703.297-.837.297-1.549.206-1.703-.09-.155-.31-.206-.62-.361z" />
+        </svg>
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 font-bold text-sm whitespace-nowrap">Agenda
+            por WhatsApp</span>
+    </a>
+
+    <script>
+        // Reveal on Scroll Logic
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-x-0');
+
+            if (isOpen) {
+                // Close menu
+                mobileMenu.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+                document.body.classList.remove('overflow-hidden');
+            } else {
+                // Open menu
+                mobileMenu.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    </script>
+</body>
+
+</html>
